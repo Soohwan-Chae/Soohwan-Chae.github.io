@@ -54,11 +54,11 @@
     }
     .site-title {
       font-weight: 600;
-      font-size: 1rem;        /* 4/5 정도로 축소 */
+      font-size: 1rem;        /* 4/5 정도 */
     }
     .nav-links a {
       margin-left: 20px;
-      font-size: 0.76rem;     /* 4/5 정도로 축소 */
+      font-size: 0.76rem;     /* 4/5 정도 */
       color: #000;
       letter-spacing: 0.03em;
     }
@@ -70,8 +70,8 @@
     }
     .background-inner {
       max-width: 1200px;
-      margin: 8px auto 0;     /* 글자 한 줄 정도 아래로 내림 */
-      padding: 0 20px;        /* 좌우 패딩 20px → 프로필/내용과 정렬 */
+      margin: 8px auto 0;
+      padding: 0 20px;
     }
     .background-img {
       width: 100%;
@@ -84,10 +84,10 @@
     .page-wrapper {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px 20px 60px;   /* 좌우 20px → background와 정렬 */
+      padding: 20px 20px 60px;
       display: grid;
       grid-template-columns: 260px 1fr;
-      gap: 32px;
+      gap: 22px;               /* 32px → 22px : 프로필 쪽으로 조금 더 붙게 */
     }
 
     /* 왼쪽 프로필 */
@@ -119,15 +119,15 @@
     .profile-role {
       font-size: 0.9rem;
       color: #666;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
     .profile-info {
       list-style: none;
-      font-size: 0.86rem;
+      font-size: 0.67rem;   /* 2/3 크기 정도로 축소 */
       color: #555;
     }
     .profile-info li {
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     /* 오른쪽 메인 콘텐츠 */
@@ -156,9 +156,9 @@
       margin-bottom: 0.7em;
     }
 
-    /* About me 줄간격만 조금 좁게 */
+    /* About me 줄간격 조금 더 줄이기 */
     #about p {
-      line-height: 1.5;
+      line-height: 1.35;     /* 1.5 → 1.35 */
     }
 
     /* Research Highlights */
@@ -181,20 +181,20 @@
     }
     .highlight-title {
       font-weight: 600;
-      font-size: 0.8rem;       /* 4/5 크기 */
+      font-size: 0.8rem;    /* 4/5 크기 */
       margin-bottom: 4px;
     }
     .highlight-meta {
-      font-size: 0.72rem;      /* 4/5 크기 */
+      font-size: 0.72rem;
       color: #666;
       margin-bottom: 6px;
     }
     .highlight-item p {
-      font-size: 0.76rem;      /* 4/5 크기 */
+      font-size: 0.76rem;
       line-height: 1.6;
     }
     .highlight-links a {
-      font-size: 0.7rem;       /* 4/5 크기 */
+      font-size: 0.7rem;
       margin-right: 10px;
     }
 
@@ -237,7 +237,6 @@
     <div class="top-nav-inner">
       <div class="site-title">Soo-Hwan Chae</div>
       <nav class="nav-links">
-        <!-- 각각 다른 페이지로 이동하도록 변경 -->
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="research.html">Research</a>
@@ -247,7 +246,7 @@
     </div>
   </header>
 
-  <!-- 상단 배경 이미지 (background.jpg 사용) -->
+  <!-- 상단 배경 이미지 -->
   <div class="background">
     <div class="background-inner">
       <img src="background.jpg" alt="Background image" class="background-img" />
@@ -378,7 +377,7 @@
         </div>
       </section>
 
-      <!-- MORE 섹션 (필요에 따라 수정) -->
+      <!-- MORE 섹션 -->
       <section class="section" id="more">
         <h2 class="section-title">More</h2>
         <p>
