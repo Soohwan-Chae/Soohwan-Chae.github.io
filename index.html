@@ -1,86 +1,374 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soohwan Chae - Researcher</title>
-    <style>
-        /* 여기서부터 디자인(CSS) 영역입니다 */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            text-align: center;
-            padding: 50px 0;
-            border-bottom: 1px solid #eee;
-        }
-        h1 { margin-bottom: 10px; }
-        .contact-info { color: #666; font-size: 0.9em; }
-        
-        section { margin: 40px 0; }
-        h2 { border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 20px; }
-        
-        /* 논문 리스트 스타일 */
-        .paper-item { margin-bottom: 20px; }
-        .paper-title { font-weight: bold; font-size: 1.1em; color: #000; text-decoration: none;}
-        .paper-authors { color: #555; }
-        .paper-venue { font-style: italic; color: #777; }
-        
-        /* 링크 스타일 */
-        a { color: #0366d6; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Soohwan Chae</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 아이콘용 (원하면 삭제해도 됨) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root {
+      --bg: #f5f5f5;
+      --text: #333;
+      --accent: #007acc;
+      --border: #e0e0e0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* 상단 네비게이션 */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+    }
+    .top-nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .nav-links a {
+      margin-left: 20px;
+      font-size: 0.95rem;
+    }
+
+    /* 전체 레이아웃 */
+    .page-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 32px;
+    }
+
+    /* 왼쪽 프로필 카드 */
+    .sidebar {
+      position: relative;
+    }
+    .profile-card {
+      position: sticky;
+      top: 80px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 20px 18px 18px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+      text-align: left;
+    }
+    .profile-photo {
+      width: 100%;
+      border-radius: 4px;
+      object-fit: cover;
+      margin-bottom: 12px;
+    }
+    .profile-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+    .profile-role {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 14px;
+    }
+    .profile-info {
+      list-style: none;
+      font-size: 0.86rem;
+      color: #555;
+    }
+    .profile-info li {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .profile-info i {
+      width: 14px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    /* 오른쪽 메인 콘텐츠 */
+    .content {
+      min-width: 0;
+    }
+    .section {
+      margin-bottom: 40px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 24px 26px 26px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    }
+    .section + .section {
+      margin-top: 16px;
+    }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+    }
+    .section p {
+      font-size: 0.96rem;
+      line-height: 1.7;
+      margin-bottom: 0.7em;
+    }
+
+    /* Research Highlights */
+    .highlight-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 6px;
+    }
+    .highlight-item {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 14px;
+    }
+    .highlight-thumb {
+      width: 100%;
+      border-radius: 3px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+    .highlight-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+      margin-bottom: 4px;
+    }
+    .highlight-meta {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 6px;
+    }
+    .highlight-links a {
+      font-size: 0.82rem;
+      margin-right: 10px;
+    }
+
+    /* Publications list */
+    .paper-item {
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+    .paper-title {
+      font-weight: 600;
+    }
+    .paper-authors {
+      color: #555;
+    }
+    .paper-venue {
+      font-style: italic;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* 반응형 */
+    @media (max-width: 900px) {
+      .page-wrapper {
+        grid-template-columns: 1fr;
+      }
+      .profile-card {
+        position: static;
+      }
+      .highlight-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <!-- 상단 네비게이션 -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <div class="site-title">Soohwan Chae</div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#research">Research</a>
+      </nav>
+    </div>
+  </header>
 
-    <header>
-        <img src="Profile.jpg" alt="Profile Picture">
-        <h1>Soohwan Chae (채수환)</h1>
-        <p class="contact-info">
-            Ph.D. Candidate @ Seoul National University<br>
-            Email: 본인_이메일@snu.ac.kr<br>
-            <a href="https://github.com/Soohwan-Chae">GitHub</a>
-        </p>
-    </header>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            안녕하세요, 로봇 공학을 연구하는 채수환입니다.<br>
-            이곳은 저의 연구와 프로젝트를 소개하는 공간입니다.<br>
-            (이 부분에 본인의 관심 분야나 간단한 소개글을 적으시면 됩니다.)
-        </p>
-    </section>
-
-    <section id="publications">
-        <h2>Publications</h2>
-        
-        <div class="paper-item">
-            <div class="paper-title">Title of Your Amazing Research Paper</div>
-            <div class="paper-authors">Soohwan Chae, Co-Author 1, Co-Author 2</div>
-            <div class="paper-venue">International Conference on Robotics and Automation (ICRA), 2025</div>
-            <a href="#">[PDF]</a> <a href="#">[Video]</a>
+  <div class="page-wrapper" id="home">
+    <!-- 왼쪽 사이드바 -->
+    <aside class="sidebar">
+      <div class="profile-card">
+        <!-- 프로필 사진 파일명 변경해서 사용 -->
+        <img src="profile.jpg" alt="Profile photo" class="profile-photo" />
+        <div class="profile-name">Soohwan Chae</div>
+        <div class="profile-role">
+          Ph.D. Candidate<br />
+          Seoul National University
         </div>
 
-        <div class="paper-item">
-            <div class="paper-title">Another Great Paper about Robotics</div>
-            <div class="paper-authors">Soohwan Chae, Advisor Name</div>
-            <div class="paper-venue">IROS, 2024</div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li><strong>Project A:</strong> 설명...</li>
-            <li><strong>Project B:</strong> 설명...</li>
+        <ul class="profile-info">
+          <li><i class="fa-solid fa-location-dot"></i> Seoul, Republic of Korea</li>
+          <li><i class="fa-solid fa-flask"></i> Biorobotics Lab, SNU</li>
+          <li>
+            <i class="fa-solid fa-file-arrow-down"></i>
+            <a href="cv.pdf" target="_blank">Download CV</a>
+          </li>
+          <li>
+            <i class="fa-brands fa-github"></i>
+            <a href="https://github.com/Soohwan-Chae" target="_blank">GitHub</a>
+          </li>
+          <li>
+            <i class="fa-brands fa-linkedin"></i>
+            <a href="#" target="_blank">LinkedIn</a>
+          </li>
+          <li>
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:your_email@snu.ac.kr">your_email@snu.ac.kr</a>
+          </li>
         </ul>
-    </section>
+      </div>
+    </aside>
 
+    <!-- 오른쪽 메인 영역 -->
+    <main class="content">
+      <!-- About -->
+      <section class="section" id="about">
+        <h2 class="section-title">About me</h2>
+        <p>
+          Hello! I’m Soohwan Chae, a Ph.D. candidate in the
+          <a href="https://biorobotics.snu.ac.kr/" target="_blank">Biorobotics Lab</a>
+          at Seoul National University. My research focuses on developing
+          innovative robotic systems, particularly in bio-inspired mechanism
+          design and mobile robots.
+        </p>
+        <p>
+          I have a strong background in mechanical design and prototyping, and I
+          am interested in combining creative mechanisms with control to achieve
+          agile and robust robot behavior.
+        </p>
+        <p>
+          You can find more details about me on this page, explore my
+          <a href="#research">research</a>, and check out my
+          <a href="#publications">publications</a>. You can also download my
+          <a href="cv.pdf" target="_blank">CV</a>.
+        </p>
+      </section>
+
+      <!-- Research highlights -->
+      <section class="section" id="research">
+        <h2 class="section-title">Research Highlights</h2>
+
+        <div class="highlight-list">
+          <!-- highlight 1 -->
+          <article class="highlight-item">
+            <!-- 썸네일 이미지 파일명 변경 -->
+            <img src="highlight1.jpg" alt="Jumping robot"
+                 class="highlight-thumb" />
+            <div>
+              <div class="highlight-title">
+                Small-scale jumping–driving robot with quasi-direct actuation
+              </div>
+              <div class="highlight-meta">
+                Agile locomotion for rough terrain exploration.
+              </div>
+              <p>
+                I design compact mechanisms that enable both high jumping
+                performance and efficient driving, focusing on energy-efficient
+                transmission and robust landing behavior.
+              </p>
+              <div class="highlight-links">
+                <a href="#" target="_blank">[video]</a>
+                <a href="#" target="_blank">[paper]</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- highlight 2 -->
+          <article class="highlight-item">
+            <img src="highlight2.jpg" alt="Wearable robot"
+                 class="highlight-thumb" />
+            <div>
+              <div class="highlight-title">
+                Lightweight hip exosuit for locomotion assistance
+              </div>
+              <div class="highlight-meta">
+                Differential tendon-driven actuation for bilateral hip support.
+              </div>
+              <p>
+                I work on soft wearable robots that provide effective assistance
+                while minimizing device weight and complexity, aiming for
+                comfortable everyday use.
+              </p>
+              <div class="highlight-links">
+                <a href="#" target="_blank">[project page]</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Publications -->
+      <section class="section" id="publications">
+        <h2 class="section-title">Publications</h2>
+
+        <div class="paper-item">
+          <div class="paper-title">
+            Title of Your Amazing Research Paper
+          </div>
+          <div class="paper-authors">
+            Soohwan Chae, Co-author 1, Co-author 2
+          </div>
+          <div class="paper-venue">
+            International Conference on Robotics and Automation (ICRA), 2025
+          </div>
+          <div>
+            <a href="#" target="_blank">[pdf]</a>
+            <a href="#" target="_blank">[video]</a>
+          </div>
+        </div>
+
+        <div class="paper-item">
+          <div class="paper-title">Another Great Paper about Robotics</div>
+          <div class="paper-authors">Soohwan Chae, Advisor Name</div>
+          <div class="paper-venue">IROS, 2024</div>
+        </div>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
