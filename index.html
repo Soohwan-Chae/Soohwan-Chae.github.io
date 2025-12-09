@@ -54,11 +54,11 @@
     }
     .site-title {
       font-weight: 600;
-      font-size: 1rem;        /* 4/5 정도 */
+      font-size: 1rem;
     }
     .nav-links a {
       margin-left: 20px;
-      font-size: 0.76rem;     /* 4/5 정도 */
+      font-size: 0.76rem;
       color: #000;
       letter-spacing: 0.03em;
     }
@@ -87,7 +87,7 @@
       padding: 20px 20px 60px;
       display: grid;
       grid-template-columns: 260px 1fr;
-      gap: 22px;               /* 32px → 22px : 프로필 쪽으로 조금 더 붙게 */
+      gap: 22px;  /* 오른쪽 섹션을 프로필 쪽으로 조금 더 붙게 */
     }
 
     /* 왼쪽 프로필 */
@@ -117,13 +117,13 @@
       margin-bottom: 4px;
     }
     .profile-role {
-      font-size: 0.9rem;
+      font-size: 0.67rem;   /* profile-info와 같은 크기 */
       color: #666;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .profile-info {
       list-style: none;
-      font-size: 0.67rem;   /* 2/3 크기 정도로 축소 */
+      font-size: 0.67rem;   /* 2/3 크기 */
       color: #555;
     }
     .profile-info li {
@@ -156,9 +156,15 @@
       margin-bottom: 0.7em;
     }
 
-    /* About me 줄간격 조금 더 줄이기 */
+    /* About me 줄간격 + 양쪽 정렬 */
     #about p {
-      line-height: 1.35;     /* 1.5 → 1.35 */
+      line-height: 1.35;
+      text-align: justify;
+    }
+
+    /* Research Highlights 섹션 양쪽 정렬 */
+    #research p {
+      text-align: justify;
     }
 
     /* Research Highlights */
@@ -181,7 +187,7 @@
     }
     .highlight-title {
       font-weight: 600;
-      font-size: 0.8rem;    /* 4/5 크기 */
+      font-size: 0.8rem;
       margin-bottom: 4px;
     }
     .highlight-meta {
