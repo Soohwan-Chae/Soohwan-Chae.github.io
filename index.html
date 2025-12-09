@@ -43,7 +43,6 @@
       top: 0;
       z-index: 10;
       background: #fff;
-      /* 회색 줄 제거: border-bottom 없음 */
     }
     .top-nav-inner {
       max-width: 1200px;
@@ -55,12 +54,12 @@
     }
     .site-title {
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: 1rem;        /* 4/5 정도로 축소 */
     }
     .nav-links a {
       margin-left: 20px;
-      font-size: 0.95rem;
-      color: #000;           /* 메뉴는 검은색 */
+      font-size: 0.76rem;     /* 4/5 정도로 축소 */
+      color: #000;
       letter-spacing: 0.03em;
     }
 
@@ -68,12 +67,11 @@
     .background {
       width: 100%;
       background: #fff;
-      /* 회색 줄 제거: border-bottom 없음 */
     }
     .background-inner {
       max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;       /* 좌우 패딩 20px → 프로필/내용과 정렬 */
+      margin: 8px auto 0;     /* 글자 한 줄 정도 아래로 내림 */
+      padding: 0 20px;        /* 좌우 패딩 20px → 프로필/내용과 정렬 */
     }
     .background-img {
       width: 100%;
@@ -86,7 +84,7 @@
     .page-wrapper {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px 20px 60px;   /* 좌우 20px → 위의 background와 정렬 */
+      padding: 20px 20px 60px;   /* 좌우 20px → background와 정렬 */
       display: grid;
       grid-template-columns: 260px 1fr;
       gap: 32px;
@@ -107,11 +105,11 @@
     }
     .profile-photo {
       display: block;
-      max-width: 180px;          /* 프로필 사진 크기 */
+      max-width: 180px;
       width: 100%;
       border-radius: 4px;
       object-fit: cover;
-      margin: 0 0 12px 0;       /* 왼쪽 정렬 (container padding 기준) */
+      margin: 0 0 12px 0;
     }
     .profile-name {
       font-weight: 700;
@@ -158,6 +156,11 @@
       margin-bottom: 0.7em;
     }
 
+    /* About me 줄간격만 조금 좁게 */
+    #about p {
+      line-height: 1.5;
+    }
+
     /* Research Highlights */
     .highlight-list {
       display: flex;
@@ -178,16 +181,20 @@
     }
     .highlight-title {
       font-weight: 600;
-      font-size: 0.98rem;
+      font-size: 0.8rem;       /* 4/5 크기 */
       margin-bottom: 4px;
     }
     .highlight-meta {
-      font-size: 0.85rem;
+      font-size: 0.72rem;      /* 4/5 크기 */
       color: #666;
       margin-bottom: 6px;
     }
+    .highlight-item p {
+      font-size: 0.76rem;      /* 4/5 크기 */
+      line-height: 1.6;
+    }
     .highlight-links a {
-      font-size: 0.82rem;
+      font-size: 0.7rem;       /* 4/5 크기 */
       margin-right: 10px;
     }
 
@@ -230,11 +237,12 @@
     <div class="top-nav-inner">
       <div class="site-title">Soo-Hwan Chae</div>
       <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#more">More</a>
+        <!-- 각각 다른 페이지로 이동하도록 변경 -->
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="more.html">More</a>
       </nav>
     </div>
   </header>
@@ -287,8 +295,8 @@
         </p>
         <p>
           You can find more details about me on this page, explore my
-          <a href="#research">research</a>, and check out my
-          <a href="#publications">publications</a>. You can also download my
+          <a href="research.html">research</a>, and check out my
+          <a href="publications.html">publications</a>. You can also download my
           <a href="cv.pdf" target="_blank">CV</a>.
         </p>
       </section>
