@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>Soohwan Chae</title>
+  <title>Soo-Hwahn Chae</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -14,7 +14,6 @@
       --bg: #ffffff;
       --text: #333;
       --accent: #007acc;
-      --border: #e0e0e0;
     }
 
     * {
@@ -44,10 +43,10 @@
       top: 0;
       z-index: 10;
       background: #fff;
-      border-bottom: 1px solid var(--border);
+      /* 회색 줄 제거: border-bottom 없음 */
     }
     .top-nav-inner {
-      max-width: 1200px;      /* 폭 살짝 넓힘 */
+      max-width: 1200px;
       margin: 0 auto;
       padding: 12px 20px;
       display: flex;
@@ -61,22 +60,25 @@
     .nav-links a {
       margin-left: 20px;
       font-size: 0.95rem;
+      color: #000;           /* 메뉴는 검은색 */
+      letter-spacing: 0.03em;
     }
 
-    /* 상단 긴 이미지 */
+    /* 상단 배경 이미지 */
     .background {
       width: 100%;
       background: #fff;
-      border-bottom: 1px solid var(--border);
+      /* 회색 줄 제거: border-bottom 없음 */
     }
     .background-inner {
       max-width: 1200px;
       margin: 0 auto;
+      padding: 0 20px;       /* 좌우 패딩 20px → 프로필/내용과 정렬 */
     }
     .background-img {
       width: 100%;
       display: block;
-      max-height: 230px;     /* 너무 높지 않게 */
+      max-height: 260px;
       object-fit: cover;
     }
 
@@ -84,7 +86,7 @@
     .page-wrapper {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px 20px 60px;
+      padding: 20px 20px 60px;   /* 좌우 20px → 위의 background와 정렬 */
       display: grid;
       grid-template-columns: 260px 1fr;
       gap: 32px;
@@ -97,7 +99,7 @@
     .profile-card {
       position: sticky;
       top: 88px;
-      background: transparent;   /* 박스/배경 없앰 */
+      background: transparent;
       border: none;
       box-shadow: none;
       padding: 0;
@@ -105,11 +107,11 @@
     }
     .profile-photo {
       display: block;
-      max-width: 180px;          /* 프로필 사진 크기 줄임 */
+      max-width: 180px;          /* 프로필 사진 크기 */
       width: 100%;
       border-radius: 4px;
       object-fit: cover;
-      margin: 0 auto 12px;       /* 가운데 정렬 */
+      margin: 0 0 12px 0;       /* 왼쪽 정렬 (container padding 기준) */
     }
     .profile-name {
       font-weight: 700;
@@ -136,7 +138,7 @@
     }
     .section {
       margin-bottom: 40px;
-      background: transparent;   /* 박스/테두리/그림자 제거 */
+      background: transparent;
       border: none;
       border-radius: 0;
       padding: 0;
@@ -149,8 +151,6 @@
       font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 14px;
-      border-bottom: none;       /* 아래 라인 제거 */
-      padding-bottom: 0;
     }
     .section p {
       font-size: 0.96rem;
@@ -174,7 +174,7 @@
       width: 100%;
       border-radius: 3px;
       object-fit: cover;
-      border: 1px solid var(--border);
+      border: 1px solid #e0e0e0;
     }
     .highlight-title {
       font-weight: 600;
@@ -228,20 +228,21 @@
   <!-- 상단 네비게이션 -->
   <header class="top-nav">
     <div class="top-nav-inner">
-      <div class="site-title">Soohwan Chae</div>
+      <div class="site-title">Soo-Hwahn Chae</div>
       <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#publications">Publications</a>
-        <a href="#research">Research</a>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#research">RESEARCH</a>
+        <a href="#publications">PUBLICATIONS</a>
+        <a href="#more">MORE</a>
       </nav>
     </div>
   </header>
 
-  <!-- 상단 긴 이미지 (background.jpg 파일 필요) -->
+  <!-- 상단 배경 이미지 (background.jpg 사용) -->
   <div class="background">
     <div class="background-inner">
-      <img src="background.jpg" alt="Research collage" class="background-img" />
+      <img src="background.jpg" alt="Background image" class="background-img" />
     </div>
   </div>
 
@@ -250,7 +251,7 @@
     <aside class="sidebar">
       <div class="profile-card">
         <img src="Profile.jpg" alt="Profile photo" class="profile-photo" />
-        <div class="profile-name">Soohwan Chae</div>
+        <div class="profile-name">Soo-Hwahn Chae</div>
         <div class="profile-role">
           Ph.D. Candidate<br />
           Seoul National University
@@ -273,7 +274,7 @@
       <section class="section" id="about">
         <h2 class="section-title">About me</h2>
         <p>
-          Hello! I’m Soohwan Chae, a Ph.D. candidate in the
+          Hello! I’m Soo-Hwahn Chae, a Ph.D. candidate in the
           <a href="https://biorobotics.snu.ac.kr/" target="_blank">Biorobotics Lab</a>
           at Seoul National University. My research focuses on developing
           innovative robotic systems, particularly in bio-inspired mechanism
@@ -351,7 +352,7 @@
             Title of Your Amazing Research Paper
           </div>
           <div class="paper-authors">
-            Soohwan Chae, Co-author 1, Co-author 2
+            Soo-Hwahn Chae, Co-author 1, Co-author 2
           </div>
           <div class="paper-venue">
             International Conference on Robotics and Automation (ICRA), 2025
@@ -364,9 +365,18 @@
 
         <div class="paper-item">
           <div class="paper-title">Another Great Paper about Robotics</div>
-          <div class="paper-authors">Soohwan Chae, Advisor Name</div>
+          <div class="paper-authors">Soo-Hwahn Chae, Advisor Name</div>
           <div class="paper-venue">IROS, 2024</div>
         </div>
+      </section>
+
+      <!-- MORE 섹션 (필요에 따라 수정) -->
+      <section class="section" id="more">
+        <h2 class="section-title">More</h2>
+        <p>
+          This section can include talks, teaching, awards, service, or anything
+          else you’d like to highlight in the future.
+        </p>
       </section>
     </main>
   </div>
