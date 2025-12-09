@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Soohwan Chae</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- 아이콘 (원치 않으면 삭제해도 됨) -->
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -12,7 +11,7 @@
 
   <style>
     :root {
-      --bg: #ffffff;      /* 전체 배경 흰색 */
+      --bg: #ffffff;
       --text: #333;
       --accent: #007acc;
       --border: #e0e0e0;
@@ -48,7 +47,7 @@
       border-bottom: 1px solid var(--border);
     }
     .top-nav-inner {
-      max-width: 1100px;
+      max-width: 1200px;      /* 폭 살짝 넓힘 */
       margin: 0 auto;
       padding: 12px 20px;
       display: flex;
@@ -57,59 +56,60 @@
     }
     .site-title {
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
     .nav-links a {
       margin-left: 20px;
       font-size: 0.95rem;
     }
 
-    /* 상단 긴 이미지 영역 */
+    /* 상단 긴 이미지 */
     .hero {
       width: 100%;
-      border-bottom: 1px solid var(--border);
       background: #fff;
+      border-bottom: 1px solid var(--border);
     }
     .hero-inner {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
     }
     .hero-img {
       width: 100%;
       display: block;
-      max-height: 260px;        /* 필요하면 높이 조절 */
+      max-height: 230px;     /* 너무 높지 않게 */
       object-fit: cover;
     }
 
     /* 전체 레이아웃 */
     .page-wrapper {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 24px 20px 60px;
+      padding: 20px 20px 60px;
       display: grid;
       grid-template-columns: 260px 1fr;
       gap: 32px;
     }
 
-    /* 왼쪽 프로필 카드 */
+    /* 왼쪽 프로필 */
     .sidebar {
       position: relative;
     }
     .profile-card {
       position: sticky;
       top: 88px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 20px 18px 18px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+      background: transparent;   /* 박스/배경 없앰 */
+      border: none;
+      box-shadow: none;
+      padding: 0;
       text-align: left;
     }
     .profile-photo {
+      display: block;
+      max-width: 180px;          /* 프로필 사진 크기 줄임 */
       width: 100%;
       border-radius: 4px;
       object-fit: cover;
-      margin-bottom: 12px;
+      margin: 0 auto 12px;       /* 가운데 정렬 */
     }
     .profile-name {
       font-weight: 700;
@@ -128,15 +128,6 @@
     }
     .profile-info li {
       margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .profile-info i {
-      width: 14px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
     }
 
     /* 오른쪽 메인 콘텐츠 */
@@ -145,11 +136,11 @@
     }
     .section {
       margin-bottom: 40px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 24px 26px 26px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+      background: transparent;   /* 박스/테두리/그림자 제거 */
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
     }
     .section + .section {
       margin-top: 16px;
@@ -158,8 +149,8 @@
       font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 14px;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 6px;
+      border-bottom: none;       /* 아래 라인 제거 */
+      padding-bottom: 0;
     }
     .section p {
       font-size: 0.96rem;
@@ -200,7 +191,7 @@
       margin-right: 10px;
     }
 
-    /* Publications list */
+    /* Publications */
     .paper-item {
       margin-bottom: 14px;
       font-size: 0.95rem;
@@ -224,6 +215,7 @@
       }
       .profile-card {
         position: static;
+        margin-bottom: 16px;
       }
       .highlight-item {
         grid-template-columns: 1fr;
@@ -246,10 +238,9 @@
     </div>
   </header>
 
-  <!-- 상단 긴 이미지 (hero) -->
+  <!-- 상단 긴 이미지 (hero.jpg 파일 필요) -->
   <div class="hero">
     <div class="hero-inner">
-      <!-- 여기 이미지 파일 이름을 실제 파일명으로 맞춰줘 -->
       <img src="hero.jpg" alt="Research collage" class="hero-img" />
     </div>
   </div>
@@ -258,7 +249,6 @@
     <!-- 왼쪽 사이드바 -->
     <aside class="sidebar">
       <div class="profile-card">
-        <!-- 프로필 사진: Profile.jpg 로 사용 -->
         <img src="Profile.jpg" alt="Profile photo" class="profile-photo" />
         <div class="profile-name">Soohwan Chae</div>
         <div class="profile-role">
@@ -267,24 +257,12 @@
         </div>
 
         <ul class="profile-info">
-          <li><i class="fa-solid fa-location-dot"></i> Seoul, Republic of Korea</li>
-          <li><i class="fa-solid fa-flask"></i> Biorobotics Lab, SNU</li>
-          <li>
-            <i class="fa-solid fa-file-arrow-down"></i>
-            <a href="cv.pdf" target="_blank">Download CV</a>
-          </li>
-          <li>
-            <i class="fa-brands fa-github"></i>
-            <a href="https://github.com/Soohwan-Chae" target="_blank">GitHub</a>
-          </li>
-          <li>
-            <i class="fa-brands fa-linkedin"></i>
-            <a href="#" target="_blank">LinkedIn</a>
-          </li>
-          <li>
-            <i class="fa-solid fa-envelope"></i>
-            <a href="mailto:your_email@snu.ac.kr">your_email@snu.ac.kr</a>
-          </li>
+          <li>Seoul, Republic of Korea</li>
+          <li>Biorobotics Lab, SNU</li>
+          <li><a href="cv.pdf" target="_blank">Download CV</a></li>
+          <li><a href="https://github.com/Soohwan-Chae" target="_blank">GitHub</a></li>
+          <li><a href="#" target="_blank">LinkedIn</a></li>
+          <li><a href="mailto:your_email@snu.ac.kr">your_email@snu.ac.kr</a></li>
         </ul>
       </div>
     </aside>
@@ -319,7 +297,6 @@
         <h2 class="section-title">Research Highlights</h2>
 
         <div class="highlight-list">
-          <!-- highlight 1 -->
           <article class="highlight-item">
             <img src="highlight1.jpg" alt="Jumping robot"
                  class="highlight-thumb" />
@@ -342,7 +319,6 @@
             </div>
           </article>
 
-          <!-- highlight 2 -->
           <article class="highlight-item">
             <img src="highlight2.jpg" alt="Wearable robot"
                  class="highlight-thumb" />
