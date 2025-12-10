@@ -15,8 +15,8 @@
       --text: #333;
       --accent: #007acc;
       --navbar-bg: #f5f5f5;
-      /* 사이드바 폰트 크기 변수 (여기만 고치면 사이드바 전체 글씨 크기가 바뀝니다) */
-      --sidebar-font-size: 0.8rem; 
+      --sidebar-font-size: 0.8rem; /* 사이드바 폰트 크기 */
+      --cv-color: #2ea44f; /* CV 다운로드 초록색 (Github 스타일) */
     }
 
     * {
@@ -97,7 +97,7 @@
       gap: 2px;
     }
 
-    /* 왼쪽 프로필 */
+    /* ================= 왼쪽 사이드바 스타일 ================= */
     .sidebar {
       position: relative;
     }
@@ -105,8 +105,6 @@
       position: sticky;
       top: 88px;
       background: transparent;
-      border: none;
-      box-shadow: none;
       padding: 0;
       text-align: left;
     }
@@ -124,37 +122,89 @@
       margin-bottom: 4px;
     }
     
-    /* [수정] 폰트 크기 통일 */
     .profile-role {
       font-size: var(--sidebar-font-size);
       color: #666;
-      margin-bottom: 8px;
+      /* 학교 이름과 아래 리스트 사이 간격을 넓힘 */
+      margin-bottom: 24px; 
     }
-    /* [수정] 폰트 크기 통일 */
+
     .profile-info {
       list-style: none;
       font-size: var(--sidebar-font-size);
       color: #555;
     }
     .profile-info li {
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start; /* 아이콘과 텍스트 상단 정렬 */
+      gap: 10px; /* 아이콘과 텍스트 사이 간격 */
     }
-    /* [수정] 폰트 크기 통일 및 링크 스타일 */
-    .profile-info a {
-        font-size: var(--sidebar-font-size);
+    
+    /* 리스트 내 아이콘 스타일 */
+    .profile-info li i {
+      width: 16px; 
+      text-align: center;
+      margin-top: 3px; /* 텍스트 높이에 맞춰 미세 조정 */
+      color: #555;
     }
 
-    /* 오른쪽 메인 콘텐츠 */
+    /* CV 링크 특별 스타일 (초록색) */
+    .cv-link {
+      color: var(--cv-color) !important;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cv-link:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+    .cv-link i {
+      color: var(--cv-color) !important;
+    }
+
+    /* 연구실 링크 스타일 (일반 텍스트처럼 보이다가 호버 시 링크) */
+    .lab-link {
+        color: #555;
+        text-decoration: none;
+    }
+    .lab-link:hover {
+        color: var(--accent);
+        text-decoration: underline;
+    }
+
+    /* 하단 아이콘 링크들 */
+    .icon-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .icon-links a {
+      font-size: var(--sidebar-font-size);
+      color: #555;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .icon-links a:hover {
+      color: var(--accent);
+    }
+    .icon-links a i {
+      width: 16px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    /* ================= 오른쪽 메인 콘텐츠 ================= */
     .content {
       min-width: 0;
     }
     .section {
       margin-bottom: 40px;
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      padding: 0;
-      box-shadow: none;
     }
     .section + .section {
       margin-top: 16px;
@@ -175,37 +225,49 @@
       line-height: 1.35;
       text-align: justify;
     }
-
-    /* Research Highlights 섹션 양쪽 정렬 */
+    /* Research Highlights 양쪽 정렬 */
     #research p {
       text-align: justify;
     }
 
-    /* 아이콘 스타일 */
-    .icon-links {
+    /* Research Highlights List */
+    .highlight-list {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
+      gap: 24px;
     }
-    /* [수정] 폰트 크기 통일 */
-    .icon-links a {
-      font-size: var(--sidebar-font-size);
-      color: #555;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .highlight-item {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 20px;
+      align-items: start;
     }
-    .icon-links a i {
-      font-size: 1.2rem;
+    .highlight-thumb {
+      width: 100%;
+      border-radius: 4px;
+      object-fit: cover;
+      display: block;
+      border: 1px solid #eee;
     }
-    .icon-links a img {
-      width: 18px;
-      height: 18px;  /* 아이콘 이미지 크기 */
+    .highlight-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 4px;
+      color: #000;
     }
-    .icon-links a:hover {
-      color: #007acc;
+    .highlight-meta {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+    .highlight-links {
+      margin-top: 8px;
+      font-size: 0.85rem;
+    }
+    .highlight-links a {
+      margin-right: 10px;
+      font-weight: 600;
     }
 
     /* Publications */
@@ -232,10 +294,14 @@
       }
       .profile-card {
         position: static;
-        margin-bottom: 16px;
+        margin-bottom: 24px;
       }
       .highlight-item {
         grid-template-columns: 1fr;
+      }
+      .highlight-thumb {
+        max-width: 100%;
+        height: auto;
       }
     }
   </style>
@@ -266,32 +332,44 @@
       <div class="profile-card">
         <img src="Profile.jpg" alt="Profile photo" class="profile-photo" />
         <div class="profile-name">Soo-Hwan Chae</div>
+        
         <div class="profile-role">
-          Ph.D. Candidate<br />
+          Ph.D. Candidate in<br />
           Seoul National University
         </div>
 
         <ul class="profile-info">
-          <li>Seoul, Republic of Korea</li>
-          <li>Biorobotics Lab, SNU</li>
-          <li><a href="cv.pdf" target="_blank">Download CV</a></li>
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Seoul, Republic of Korea</span>
+          </li>
+          
+          <li>
+            <i class="fa-solid fa-flask"></i>
+            <a href="https://biorobotics.snu.ac.kr" target="_blank" class="lab-link">
+              Biorobotics Lab, SNU
+            </a>
+          </li>
+
+          <li>
+            <a href="cv.pdf" target="_blank" class="cv-link">
+              <i class="fa-solid fa-file-arrow-down"></i>
+              Download CV
+            </a>
+          </li>
         </ul>
 
         <div class="icon-links">
-          <a href="https://www.linkedin.com/in/soo-hwan-chae-69621a24a/" target="_blank">
-            <img src="linkedin-icon.png" alt="LinkedIn" /> LinkedIn
-          </a>
-          <a href="https://biorobotics.snu.ac.kr" target="_blank">
-            <img src="biorobotics-icon.png" alt="BioRobotics Lab, SNU" /> BioRobotics Lab, SNU
-          </a>
-          <a href="mailto:justices@snu.ac.kr">
-            <img src="email-icon.png" alt="Email" /> Email
-          </a>
           <a href="https://scholar.google.com/citations?user=mJAXmwgAAAAJ&hl=en&oi=ao" target="_blank">
-            <img src="scholar-icon.png" alt="Google Scholar" /> Google Scholar
+            <i class="fa-solid fa-graduation-cap"></i> Google Scholar
           </a>
-          <a href="#" target="_blank">
-            <img src="pdf-icon.png" alt="PDF" /> PDF
+
+          <a href="https://www.linkedin.com/in/soo-hwan-chae-69621a24a/" target="_blank">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+
+          <a href="mailto:justices@snu.ac.kr">
+            <i class="fa-solid fa-envelope"></i> Email
           </a>
         </div>
       </div>
