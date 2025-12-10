@@ -11,7 +11,10 @@
       --text: #333;
       --accent: #007acc;
       --navbar-bg: #f5f5f5;
+      /* [수정] 사이드바 폰트 크기 미세 조정용 변수 */
       --sidebar-font-size: 0.75rem; 
+      /* [추가] 저자 강조용 진한 파란색 */
+      --highlight-blue: #0056b3;
     }
 
     * {
@@ -117,13 +120,14 @@
       margin-bottom: 4px;
     }
     
+    /* [수정] Ph.D. Candidate 폰트 사이즈 0.6rem으로 축소 */
     .profile-role {
-      font-size: var(--sidebar-font-size);
+      font-size: 0.6rem; 
       color: #666;
       margin-bottom: 24px; 
+      line-height: 1.4;
     }
 
-    /* 통합된 리스트 스타일 */
     .profile-info {
       list-style: none;
       font-size: var(--sidebar-font-size);
@@ -139,7 +143,6 @@
       gap: 12px; 
     }
 
-    /* 아이콘 이미지 스타일 */
     .inline-icon {
       width: 24px;       
       height: 24px;      
@@ -147,7 +150,6 @@
       flex-shrink: 0;
     }
 
-    /* 링크 텍스트 스타일 통일 */
     .sidebar-link {
         color: #555;
         text-decoration: none;
@@ -171,10 +173,9 @@
       margin-top: 16px;
     }
     
-    /* [수정] 섹션 제목 볼드 처리 */
     .section-title {
       font-size: 1.1rem;
-      font-weight: bold; /* 600 -> bold */
+      font-weight: bold; 
       margin-bottom: 14px;
     }
     .section p {
@@ -183,14 +184,13 @@
       margin-bottom: 0.7em;
     }
 
-    /* About me 줄간격 + 문단 간격 확대 */
+    /* [수정] 문단 간격 1.5배 확대 (1.2em -> 1.8em) */
     #about p {
       line-height: 1.5;
-      margin-bottom: 1.2em;
+      margin-bottom: 1.8em; 
       text-align: justify;
     }
     
-    /* Research Highlights 양쪽 정렬 */
     #research p {
       text-align: justify;
     }
@@ -201,12 +201,15 @@
       flex-direction: column;
       gap: 24px;
     }
+    
+    /* [수정] 영상 영역 2배 확대 (220px -> 440px) */
     .highlight-item {
       display: grid;
-      grid-template-columns: 220px 1fr;
+      grid-template-columns: 440px 1fr; 
       gap: 20px;
       align-items: start;
     }
+    
     .highlight-thumb {
       width: 100%;
       border-radius: 4px;
@@ -214,35 +217,46 @@
       display: block;
       border: 1px solid #eee;
     }
+
+    /* [수정] 제목 크기 2/3배 축소 (1rem -> 0.67rem) */
     .highlight-title {
       font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 8px; /* 설명이 빠져서 제목 아래 간격 살짝 추가 */
+      font-size: 0.67rem; 
+      margin-bottom: 4px;
       color: #000;
       line-height: 1.4;
     }
-    .highlight-meta {
-      font-size: 0.85rem;
-      color: #666;
-      margin-bottom: 8px;
-      font-style: italic;
+    
+    /* 저자 정보 스타일 */
+    .highlight-authors {
+      font-size: 0.6rem; /* 제목보다 약간 작게 */
+      color: #444;
+      margin-bottom: 6px;
+      line-height: 1.4;
     }
+    
+    /* 강조 텍스트 (본인 이름, 저널명) */
+    .highlight-bold-blue {
+      font-weight: bold;
+      color: var(--highlight-blue);
+    }
+
+    /* [수정] 링크 폰트 크기 2/3배 축소 (0.85rem -> 0.57rem) */
     .highlight-links {
-      margin-top: 8px;
-      font-size: 0.85rem;
+      margin-top: 6px;
+      font-size: 0.57rem; 
     }
     .highlight-links a {
       margin-right: 10px;
       font-weight: 600;
     }
 
-    /* Publications (내용 비움 대비 스타일 유지) */
     .paper-item {
       margin-bottom: 14px;
       font-size: 0.95rem;
     }
 
-    /* 반응형 */
+    /* 반응형: 화면이 좁아지면 1단으로 변경 */
     @media (max-width: 900px) {
       .page-wrapper {
         grid-template-columns: 1fr;
@@ -252,7 +266,7 @@
         margin-bottom: 24px;
       }
       .highlight-item {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 모바일에서는 영상 꽉 차게 */
       }
       .highlight-thumb {
         max-width: 100%;
@@ -271,8 +285,7 @@
         <a href="about.html">About</a>
         <a href="research.html">Research</a>
         <a href="publications.html">Publications</a>
-        <a href="more.html">More</a>
-      </nav>
+        </nav>
     </div>
   </header>
 
@@ -340,9 +353,9 @@
 
     <main class="content">
       <section class="section" id="about">
-        <h2 class="section-title">About me</h2>
+        <h2 class="section-title">Hello!</h2>
         <p>
-          Hello! I’m Soo-Hwan Chae, a Ph.D. candidate in the
+          I’m Soo-Hwan Chae, a Ph.D. candidate in the
           <a href="https://biorobotics.snu.ac.kr/" target="_blank">Biorobotics Lab</a>
           at Seoul National University, working with Prof. Kyu-Jin Cho.
           My research focuses on developing a <strong>mechanism design</strong> for
@@ -373,8 +386,14 @@
               <div class="highlight-title">
                 Agile and Energy Efficient Jumping-Crawling Robot through Rapid Transition of Locomotion and Jumping Height Adjustment
               </div>
+              
+              <div class="highlight-authors">
+                <span class="highlight-bold-blue">S.-H. Chae</span>, S.-M. Baek, J. Lee, and K.-J. Cho<br/>
+                <span class="highlight-bold-blue">IEEE/ASME Transactions on Mechatronics, 2022.</span>
+              </div>
+
               <div class="highlight-links">
-                <a href="#" target="_blank">[video]</a>
+                <a href="https://ieeexplore.ieee.org/document/9842346" target="_blank">[site]</a>
                 <a href="agile_jc_pdf.pdf" target="_blank">[paper]</a>
               </div>
             </div>
@@ -387,7 +406,14 @@
               <div class="highlight-title">
                 Ladybird beetle–inspired compliant origami
               </div>
+              
+              <div class="highlight-authors">
+                Baek, S. M., Yim, S., <span class="highlight-bold-blue">Chae, S. H.</span>, Lee, D. Y., & Cho, K. J<br/>
+                <span class="highlight-bold-blue">Science Robotics, 2020.</span>
+              </div>
+
               <div class="highlight-links">
+                <a href="https://www.science.org/doi/10.1126/scirobotics.aaz6262" target="_blank">[site]</a>
                 <a href="ladybird_pdf.pdf" target="_blank">[paper]</a>
               </div>
             </div>
@@ -397,17 +423,8 @@
 
       <section class="section" id="publications">
         <h2 class="section-title">Publications</h2>
-        <p style="color: #777; font-size: 0.9rem;">
-          </p>
       </section>
 
-      <section class="section" id="more">
-        <h2 class="section-title">More</h2>
-        <p>
-          This section can include talks, teaching, awards, service, or anything
-          else you’d like to highlight in the future.
-        </p>
-      </section>
     </main>
   </div>
 
