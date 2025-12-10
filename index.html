@@ -11,9 +11,7 @@
       --text: #333;
       --accent: #007acc;
       --navbar-bg: #f5f5f5;
-      
-      /* [수정] 사이드바 폰트 크기 축소 (0.8rem -> 0.75rem) */
-      --sidebar-font-size: 0.4rem; 
+      --sidebar-font-size: 0.75rem; 
     }
 
     * {
@@ -130,24 +128,23 @@
       list-style: none;
       font-size: var(--sidebar-font-size);
       color: #555;
-      /* 리스트 전체를 Flex로 만들어 간격 제어 */
       display: flex;
       flex-direction: column;
-      gap: 20px; /* 항목 간 간격 넓게 설정 */
+      gap: 20px; 
     }
 
     .profile-info li {
       display: flex;
-      align-items: center; /* 아이콘과 텍스트 수직 중앙 정렬 */
-      gap: 12px; /* 아이콘과 텍스트 사이 간격 */
+      align-items: center; 
+      gap: 12px; 
     }
 
-    /* 아이콘 이미지 스타일 (크기 1.5배 확대: 24px) */
+    /* 아이콘 이미지 스타일 */
     .inline-icon {
       width: 24px;       
       height: 24px;      
       object-fit: contain; 
-      flex-shrink: 0; /* 아이콘 찌그러짐 방지 */
+      flex-shrink: 0;
     }
 
     /* 링크 텍스트 스타일 통일 */
@@ -156,7 +153,7 @@
         text-decoration: none;
         display: flex;
         align-items: center;
-        gap: 12px; /* 링크 내부 아이콘-텍스트 간격도 동일하게 */
+        gap: 12px; 
     }
     .sidebar-link:hover {
         color: var(--accent);
@@ -173,9 +170,11 @@
     .section + .section {
       margin-top: 16px;
     }
+    
+    /* [수정] 섹션 제목 볼드 처리 */
     .section-title {
       font-size: 1.1rem;
-      font-weight: 600;
+      font-weight: bold; /* 600 -> bold */
       margin-bottom: 14px;
     }
     .section p {
@@ -184,10 +183,10 @@
       margin-bottom: 0.7em;
     }
 
-    /* [수정] About me 줄간격 + 문단 간격 확대 */
+    /* About me 줄간격 + 문단 간격 확대 */
     #about p {
-      line-height: 1.5;         /* 줄 간격 */
-      margin-bottom: 1.5em;     /* 문단 사이 간격 1.5배 확대 */
+      line-height: 1.5;
+      margin-bottom: 1.2em;
       text-align: justify;
     }
     
@@ -218,8 +217,9 @@
     .highlight-title {
       font-weight: 600;
       font-size: 1rem;
-      margin-bottom: 4px;
+      margin-bottom: 8px; /* 설명이 빠져서 제목 아래 간격 살짝 추가 */
       color: #000;
+      line-height: 1.4;
     }
     .highlight-meta {
       font-size: 0.85rem;
@@ -236,21 +236,10 @@
       font-weight: 600;
     }
 
-    /* Publications */
+    /* Publications (내용 비움 대비 스타일 유지) */
     .paper-item {
       margin-bottom: 14px;
       font-size: 0.95rem;
-    }
-    .paper-title {
-      font-weight: 600;
-    }
-    .paper-authors {
-      color: #555;
-    }
-    .paper-venue {
-      font-style: italic;
-      color: #777;
-      font-size: 0.9rem;
     }
 
     /* 반응형 */
@@ -376,45 +365,30 @@
         <h2 class="section-title">Research Highlights</h2>
 
         <div class="highlight-list">
+          
           <article class="highlight-item">
-            <img src="highlight1.jpg" alt="Jumping robot"
+            <img src="agile_jc_trim_gif.gif" alt="Jumping robot"
                  class="highlight-thumb" />
             <div>
               <div class="highlight-title">
-                Small-scale jumping–driving robot with quasi-direct actuation
+                Agile and Energy Efficient Jumping-Crawling Robot through Rapid Transition of Locomotion and Jumping Height Adjustment
               </div>
-              <div class="highlight-meta">
-                Agile locomotion for rough terrain exploration.
-              </div>
-              <p>
-                I design compact mechanisms that enable both high jumping
-                performance and efficient driving, focusing on energy-efficient
-                transmission and robust landing behavior.
-              </p>
               <div class="highlight-links">
                 <a href="#" target="_blank">[video]</a>
-                <a href="#" target="_blank">[paper]</a>
+                <a href="agile_jc_pdf.pdf" target="_blank">[paper]</a>
               </div>
             </div>
           </article>
 
           <article class="highlight-item">
-            <img src="highlight2.jpg" alt="Wearable robot"
+            <img src="ladybird_trim_gif.gif" alt="Ladybird origami"
                  class="highlight-thumb" />
             <div>
               <div class="highlight-title">
-                Lightweight hip exosuit for locomotion assistance
+                Ladybird beetle–inspired compliant origami
               </div>
-              <div class="highlight-meta">
-                Differential tendon-driven actuation for bilateral hip support.
-              </div>
-              <p>
-                I work on soft wearable robots that provide effective assistance
-                while minimizing device weight and complexity, aiming for
-                comfortable everyday use.
-              </p>
               <div class="highlight-links">
-                <a href="#" target="_blank">[project page]</a>
+                <a href="ladybird_pdf.pdf" target="_blank">[paper]</a>
               </div>
             </div>
           </article>
@@ -423,28 +397,8 @@
 
       <section class="section" id="publications">
         <h2 class="section-title">Publications</h2>
-
-        <div class="paper-item">
-          <div class="paper-title">
-            Title of Your Amazing Research Paper
-          </div>
-          <div class="paper-authors">
-            Soo-Hwan Chae, Co-author 1, Co-author 2
-          </div>
-          <div class="paper-venue">
-            International Conference on Robotics and Automation (ICRA), 2025
-          </div>
-          <div>
-            <a href="#" target="_blank">[pdf]</a>
-            <a href="#" target="_blank">[video]</a>
-          </div>
-        </div>
-
-        <div class="paper-item">
-          <div class="paper-title">Another Great Paper about Robotics</div>
-          <div class="paper-authors">Soo-Hwan Chae, Advisor Name</div>
-          <div class="paper-venue">IROS, 2024</div>
-        </div>
+        <p style="color: #777; font-size: 0.9rem;">
+          </p>
       </section>
 
       <section class="section" id="more">
