@@ -14,7 +14,7 @@
       --bg: #ffffff;
       --text: #333;
       --accent: #007acc;
-      --navbar-bg: #f5f5f5;  /* 회색 바 */
+      --navbar-bg: #f5f5f5;
     }
 
     * {
@@ -47,7 +47,7 @@
       transition: background-color 0.2s ease;
     }
     .top-nav.scrolled {
-      background: #f0f0f0;  /* 스크롤 시 연한 회색 */
+      background: #f0f0f0;
     }
     .top-nav-inner {
       max-width: 1200px;
@@ -92,7 +92,7 @@
       padding: 20px 20px 60px;
       display: grid;
       grid-template-columns: 260px 1fr;
-      gap: 2px; /* 프로필과 콘텐츠 간격 줄임 */
+      gap: 2px;
     }
 
     /* 왼쪽 프로필 */
@@ -209,6 +209,28 @@
       margin-right: 10px;
     }
 
+    /* 아이콘 스타일 */
+    .icon-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .icon-links a {
+      font-size: 0.9rem;     /* 글씨 크기 조정 */
+      color: #555;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .icon-links a i {
+      font-size: 1.2rem;     /* 아이콘 크기 조정 */
+    }
+    .icon-links a:hover {
+      color: #007acc;
+    }
+
     /* Publications */
     .paper-item {
       margin-bottom: 14px;
@@ -224,25 +246,6 @@
       font-style: italic;
       color: #777;
       font-size: 0.9rem;
-    }
-
-    /* 아이콘 스타일 */
-    .icon-links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .icon-links a {
-      font-size: 1.2rem;
-      color: #555;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .icon-links a:hover {
-      color: #007acc;
     }
 
     /* 반응형 */
