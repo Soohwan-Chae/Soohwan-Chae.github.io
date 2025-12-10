@@ -172,43 +172,6 @@
       text-align: justify;
     }
 
-    /* Research Highlights */
-    .highlight-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 6px;
-    }
-    .highlight-item {
-      display: grid;
-      grid-template-columns: 230px 1fr;
-      gap: 14px;
-    }
-    .highlight-thumb {
-      width: 100%;
-      border-radius: 3px;
-      object-fit: cover;
-      border: 1px solid #e0e0e0;
-    }
-    .highlight-title {
-      font-weight: 600;
-      font-size: 0.8rem;
-      margin-bottom: 4px;
-    }
-    .highlight-meta {
-      font-size: 0.72rem;
-      color: #666;
-      margin-bottom: 6px;
-    }
-    .highlight-item p {
-      font-size: 0.76rem;
-      line-height: 1.6;
-    }
-    .highlight-links a {
-      font-size: 0.7rem;
-      margin-right: 10px;
-    }
-
     /* 아이콘 스타일 */
     .icon-links {
       display: flex;
@@ -217,7 +180,7 @@
       margin-top: 10px;
     }
     .icon-links a {
-      font-size: 0.9rem;     /* 글씨 크기 조정 */
+      font-size: 0.9rem;
       color: #555;
       text-decoration: none;
       display: flex;
@@ -225,7 +188,11 @@
       gap: 8px;
     }
     .icon-links a i {
-      font-size: 1.2rem;     /* 아이콘 크기 조정 */
+      font-size: 1.2rem; /* 아이콘 크기 조정 */
+    }
+    .icon-links a img {
+      width: 18px;
+      height: 18px;  /* 아이콘 이미지 크기 */
     }
     .icon-links a:hover {
       color: #007acc;
@@ -305,19 +272,19 @@
 
         <div class="icon-links">
           <a href="https://www.linkedin.com/in/soo-hwan-chae-69621a24a/" target="_blank">
-            <i class="fab fa-linkedin"></i> LinkedIn
+            <img src="linkedin-icon.png" alt="LinkedIn" /> LinkedIn
           </a>
           <a href="https://biorobotics.snu.ac.kr" target="_blank">
-            <i class="fas fa-building"></i> BioRobotics Lab, SNU
+            <img src="biorobotics-icon.png" alt="BioRobotics Lab, SNU" /> BioRobotics Lab, SNU
           </a>
           <a href="mailto:justices@snu.ac.kr">
-            <i class="fas fa-envelope"></i> Email
+            <img src="email-icon.png" alt="Email" /> Email
           </a>
           <a href="https://scholar.google.com/citations?user=mJAXmwgAAAAJ&hl=en&oi=ao" target="_blank">
-            <i class="fas fa-book"></i> Google Scholar
+            <img src="scholar-icon.png" alt="Google Scholar" /> Google Scholar
           </a>
           <a href="#" target="_blank">
-            <i class="fas fa-file-pdf"></i> PDF
+            <img src="pdf-icon.png" alt="PDF" /> PDF
           </a>
         </div>
       </div>
