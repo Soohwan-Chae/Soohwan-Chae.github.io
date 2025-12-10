@@ -4,10 +4,6 @@
   <meta charset="UTF-8" />
   <title>Soo-Hwan Chae</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
     :root {
@@ -16,7 +12,6 @@
       --accent: #007acc;
       --navbar-bg: #f5f5f5;
       --sidebar-font-size: 0.8rem; /* 사이드바 폰트 크기 */
-      --cv-color: #2ea44f; /* CV 다운로드 초록색 (Github 스타일) */
     }
 
     * {
@@ -129,6 +124,7 @@
       margin-bottom: 24px; 
     }
 
+    /* 리스트 스타일 */
     .profile-info {
       list-style: none;
       font-size: var(--sidebar-font-size);
@@ -137,40 +133,27 @@
     .profile-info li {
       margin-bottom: 8px;
       display: flex;
-      align-items: flex-start; /* 아이콘과 텍스트 상단 정렬 */
-      gap: 10px; /* 아이콘과 텍스트 사이 간격 */
-    }
-    
-    /* 리스트 내 아이콘 스타일 */
-    .profile-info li i {
-      width: 16px; 
-      text-align: center;
-      margin-top: 3px; /* 텍스트 높이에 맞춰 미세 조정 */
-      color: #555;
+      align-items: center; /* 아이콘과 텍스트 수직 중앙 정렬 */
+      gap: 8px; /* 아이콘과 텍스트 사이 간격 */
     }
 
-    /* CV 링크 특별 스타일 (초록색) */
-    .cv-link {
-      color: var(--cv-color) !important;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .cv-link:hover {
-      text-decoration: underline;
-      opacity: 0.8;
-    }
-    .cv-link i {
-      color: var(--cv-color) !important;
+    /* 아이콘 이미지 공통 스타일 (글씨 크기에 맞춤) */
+    .inline-icon {
+      width: 16px;       /* 너비 고정 */
+      height: 16px;      /* 높이 고정 */
+      object-fit: contain; /* 비율 유지 */
+      vertical-align: middle;
     }
 
-    /* 연구실 링크 스타일 (일반 텍스트처럼 보이다가 호버 시 링크) */
-    .lab-link {
-        color: #555;
+    /* 링크 스타일 통일 (CV 포함) */
+    .sidebar-link {
+        color: #555; /* 다른 텍스트와 동일한 색상 */
         text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
-    .lab-link:hover {
+    .sidebar-link:hover {
         color: var(--accent);
         text-decoration: underline;
     }
@@ -188,15 +171,10 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
     .icon-links a:hover {
       color: var(--accent);
-    }
-    .icon-links a i {
-      width: 16px;
-      text-align: center;
-      font-size: 1rem;
     }
 
     /* ================= 오른쪽 메인 콘텐츠 ================= */
@@ -340,20 +318,20 @@
 
         <ul class="profile-info">
           <li>
-            <i class="fa-solid fa-location-dot"></i>
+            <img src="location_icon.png" alt="Location" class="inline-icon" />
             <span>Seoul, Republic of Korea</span>
           </li>
           
           <li>
-            <i class="fa-solid fa-flask"></i>
-            <a href="https://biorobotics.snu.ac.kr" target="_blank" class="lab-link">
+            <a href="https://biorobotics.snu.ac.kr" target="_blank" class="sidebar-link">
+              <img src="BRL_icon.jpg" alt="Lab" class="inline-icon" />
               Biorobotics Lab, SNU
             </a>
           </li>
 
           <li>
-            <a href="cv.pdf" target="_blank" class="cv-link">
-              <i class="fa-solid fa-file-arrow-down"></i>
+            <a href="cv.pdf" target="_blank" class="sidebar-link">
+              <img src="cv_icon.png" alt="CV" class="inline-icon" />
               Download CV
             </a>
           </li>
@@ -361,15 +339,18 @@
 
         <div class="icon-links">
           <a href="https://scholar.google.com/citations?user=mJAXmwgAAAAJ&hl=en&oi=ao" target="_blank">
-            <i class="fa-solid fa-graduation-cap"></i> Google Scholar
+            <img src="scholar_icon.png" alt="Google Scholar" class="inline-icon" />
+            Google Scholar
           </a>
 
           <a href="https://www.linkedin.com/in/soo-hwan-chae-69621a24a/" target="_blank">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
+            <img src="linkedin_icon.png" alt="LinkedIn" class="inline-icon" />
+            LinkedIn
           </a>
 
           <a href="mailto:justices@snu.ac.kr">
-            <i class="fa-solid fa-envelope"></i> Email
+            <img src="email_icon.png" alt="Email" class="inline-icon" />
+            Email
           </a>
         </div>
       </div>
