@@ -15,6 +15,8 @@
       --text: #333;
       --accent: #007acc;
       --navbar-bg: #f5f5f5;
+      /* 사이드바 폰트 크기 변수 (여기만 고치면 사이드바 전체 글씨 크기가 바뀝니다) */
+      --sidebar-font-size: 0.8rem; 
     }
 
     * {
@@ -121,18 +123,25 @@
       font-size: 1.1rem;
       margin-bottom: 4px;
     }
+    
+    /* [수정] 폰트 크기 통일 */
     .profile-role {
-      font-size: 0.67rem;
+      font-size: var(--sidebar-font-size);
       color: #666;
       margin-bottom: 8px;
     }
+    /* [수정] 폰트 크기 통일 */
     .profile-info {
       list-style: none;
-      font-size: 0.67rem;
+      font-size: var(--sidebar-font-size);
       color: #555;
     }
     .profile-info li {
       margin-bottom: 6px;
+    }
+    /* [수정] 폰트 크기 통일 및 링크 스타일 */
+    .profile-info a {
+        font-size: var(--sidebar-font-size);
     }
 
     /* 오른쪽 메인 콘텐츠 */
@@ -179,8 +188,9 @@
       gap: 10px;
       margin-top: 10px;
     }
+    /* [수정] 폰트 크기 통일 */
     .icon-links a {
-      font-size: 0.9rem;
+      font-size: var(--sidebar-font-size);
       color: #555;
       text-decoration: none;
       display: flex;
@@ -215,12 +225,6 @@
       font-size: 0.9rem;
     }
 
-    /* 각 링크 항목 스타일 통일 */
-    .profile-info a,
-    .icon-links a {
-      font-size: 0.9rem;    /* 아이콘 + 텍스트 동일 크기 */
-    }
-
     /* 반응형 */
     @media (max-width: 900px) {
       .page-wrapper {
@@ -238,7 +242,6 @@
 </head>
 
 <body>
-  <!-- 상단 네비게이션 -->
   <header class="top-nav">
     <div class="top-nav-inner">
       <div class="site-title">Soo-Hwan Chae</div>
@@ -252,7 +255,6 @@
     </div>
   </header>
 
-  <!-- 상단 배경 이미지 -->
   <div class="background">
     <div class="background-inner">
       <img src="background.jpg" alt="Background image" class="background-img" />
@@ -260,7 +262,6 @@
   </div>
 
   <div class="page-wrapper" id="home">
-    <!-- 왼쪽 사이드바 -->
     <aside class="sidebar">
       <div class="profile-card">
         <img src="Profile.jpg" alt="Profile photo" class="profile-photo" />
@@ -296,9 +297,7 @@
       </div>
     </aside>
 
-    <!-- 오른쪽 메인 영역 -->
     <main class="content">
-      <!-- About -->
       <section class="section" id="about">
         <h2 class="section-title">About me</h2>
         <p>
@@ -321,7 +320,6 @@
         </p>
       </section>
 
-      <!-- Research highlights -->
       <section class="section" id="research">
         <h2 class="section-title">Research Highlights</h2>
 
@@ -371,7 +369,6 @@
         </div>
       </section>
 
-      <!-- Publications -->
       <section class="section" id="publications">
         <h2 class="section-title">Publications</h2>
 
@@ -398,7 +395,6 @@
         </div>
       </section>
 
-      <!-- MORE 섹션 -->
       <section class="section" id="more">
         <h2 class="section-title">More</h2>
         <p>
@@ -409,7 +405,6 @@
     </main>
   </div>
 
-  <!-- 스크롤 시 상단 바 색 변경 스크립트 -->
   <script>
     window.addEventListener('scroll', function () {
       const header = document.querySelector('.top-nav');
