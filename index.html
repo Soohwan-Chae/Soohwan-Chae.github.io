@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <title>Soo-Hwan Chae</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
     :root {
@@ -11,7 +15,11 @@
       --text: #333;
       --accent: #007acc;
       --navbar-bg: #f5f5f5;
-      --sidebar-font-size: 0.8rem; /* 사이드바 폰트 크기 */
+      --sidebar-font-size: 0.8rem;
+      
+      /* 아이콘 색상 설정 */
+      --icon-color: #2c2c2c; /* 보내주신 이미지처럼 진한 회색 (거의 검정) */
+      --linkedin-color: #0077b5; /* 링크드인 브랜드 컬러 */
     }
 
     * {
@@ -123,43 +131,57 @@
       margin-bottom: 24px; 
     }
 
-    /* 통합된 리스트 스타일 */
+    /* 통합 리스트 스타일 */
     .profile-info {
       list-style: none;
       font-size: var(--sidebar-font-size);
       color: #555;
-      /* 리스트 전체를 Flex로 만들어 간격 제어 */
       display: flex;
       flex-direction: column;
-      gap: 20px; /* 항목 간 간격 넓게 설정 */
+      gap: 20px; /* 요청하신 넓은 간격 */
     }
 
     .profile-info li {
       display: flex;
-      align-items: center; /* 아이콘과 텍스트 수직 중앙 정렬 */
-      gap: 12px; /* 아이콘과 텍스트 사이 간격 */
+      align-items: center; 
+      gap: 14px; /* 아이콘과 텍스트 사이 간격 */
     }
 
-    /* 아이콘 이미지 스타일 (크기 1.5배 확대: 24px) */
-    .inline-icon {
-      width: 24px;       
-      height: 24px;      
-      object-fit: contain; 
-      flex-shrink: 0; /* 아이콘 찌그러짐 방지 */
+    /* 아이콘 공통 스타일 (이미지 대체) */
+    .profile-info i {
+      font-size: 1.3rem; /* 아이콘 크기 키움 (약 21px) */
+      width: 24px;       /* 너비 고정 (세로줄 맞춤) */
+      text-align: center;
+      color: var(--icon-color); /* 기본 색상: 진한 회색 */
+      flex-shrink: 0;
     }
 
-    /* 링크 텍스트 스타일 통일 */
+    /* 링크드인 아이콘만 파란색으로 포인트 */
+    .fa-linkedin {
+      color: var(--linkedin-color) !important;
+    }
+
+    /* 링크 텍스트 스타일 */
     .sidebar-link {
         color: #555;
         text-decoration: none;
         display: flex;
         align-items: center;
-        gap: 12px; /* 링크 내부 아이콘-텍스트 간격도 동일하게 */
+        gap: 14px; /* 링크 내부 간격도 동일하게 */
     }
     .sidebar-link:hover {
         color: var(--accent);
         text-decoration: underline;
     }
+    /* 링크 안의 아이콘 색상 상속 문제 해결 */
+    .sidebar-link i {
+        color: var(--icon-color);
+    }
+    /* 링크드인 링크 안의 아이콘 색상 */
+    .sidebar-link .fa-linkedin {
+        color: var(--linkedin-color);
+    }
+
 
     /* ================= 오른쪽 메인 콘텐츠 ================= */
     .content {
@@ -182,12 +204,10 @@
       margin-bottom: 0.7em;
     }
 
-    /* About me 줄간격 + 양쪽 정렬 */
     #about p {
       line-height: 1.35;
       text-align: justify;
     }
-    /* Research Highlights 양쪽 정렬 */
     #research p {
       text-align: justify;
     }
@@ -249,7 +269,6 @@
       font-size: 0.9rem;
     }
 
-    /* 반응형 */
     @media (max-width: 900px) {
       .page-wrapper {
         grid-template-columns: 1fr;
@@ -302,41 +321,41 @@
 
         <ul class="profile-info">
           <li>
-            <img src="location_icon.jpg" alt="Location" class="inline-icon" />
+            <i class="fa-solid fa-location-dot"></i>
             <span>Seoul, Republic of Korea</span>
           </li>
           
           <li>
             <a href="https://biorobotics.snu.ac.kr" target="_blank" class="sidebar-link">
-              <img src="BRL_icon.jpg" alt="Lab" class="inline-icon" />
+              <i class="fa-solid fa-link"></i>
               Biorobotics Lab, SNU
             </a>
           </li>
 
           <li>
             <a href="cv.pdf" target="_blank" class="sidebar-link">
-              <img src="cv_icon.jpg" alt="CV" class="inline-icon" />
+              <i class="fa-solid fa-file-pdf"></i>
               Download CV
             </a>
           </li>
 
           <li>
             <a href="https://scholar.google.com/citations?user=mJAXmwgAAAAJ&hl=en&oi=ao" target="_blank" class="sidebar-link">
-              <img src="scholar_icon.jpg" alt="Google Scholar" class="inline-icon" />
+              <i class="fa-solid fa-graduation-cap"></i>
               Google Scholar
             </a>
           </li>
 
           <li>
             <a href="https://www.linkedin.com/in/soo-hwan-chae-69621a24a/" target="_blank" class="sidebar-link">
-              <img src="linkedin_icon.jpg" alt="LinkedIn" class="inline-icon" />
+              <i class="fa-brands fa-linkedin"></i>
               LinkedIn
             </a>
           </li>
 
           <li>
             <a href="mailto:justices@snu.ac.kr" class="sidebar-link">
-              <img src="email_icon.jpg" alt="Email" class="inline-icon" />
+              <i class="fa-solid fa-envelope"></i>
               Email
             </a>
           </li>
