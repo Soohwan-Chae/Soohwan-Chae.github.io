@@ -11,7 +11,9 @@
       --text: #333;
       --accent: #007acc;
       --navbar-bg: #f5f5f5;
-      --sidebar-font-size: 0.8rem; /* 사이드바 폰트 크기 */
+      
+      /* [수정] 사이드바 폰트 크기 축소 (0.8rem -> 0.75rem) */
+      --sidebar-font-size: 0.75rem; 
     }
 
     * {
@@ -182,11 +184,13 @@
       margin-bottom: 0.7em;
     }
 
-    /* About me 줄간격 + 양쪽 정렬 */
+    /* [수정] About me 줄간격 + 문단 간격 확대 */
     #about p {
-      line-height: 1.35;
+      line-height: 1.5;         /* 줄 간격 */
+      margin-bottom: 1.2em;     /* 문단 사이 간격 1.5배 확대 */
       text-align: justify;
     }
+    
     /* Research Highlights 양쪽 정렬 */
     #research p {
       text-align: justify;
