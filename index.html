@@ -11,9 +11,7 @@
       --text: #333;
       --accent: #007acc;
       --navbar-bg: #f5f5f5;
-      /* [수정] 사이드바 폰트 크기 미세 조정용 변수 */
-      --sidebar-font-size: 0.75rem; 
-      /* [추가] 저자 강조용 진한 파란색 */
+      --sidebar-font-size: 0.6rem; 
       --highlight-blue: #0056b3;
     }
 
@@ -89,9 +87,15 @@
     .page-wrapper {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px 20px 60px;
+      
+      /* [수정] 위쪽 여백(padding-top)을 20px -> 50px로 2.5배 확대 */
+      padding: 50px 20px 60px; 
+      
       display: grid;
-      grid-template-columns: 260px 1fr;
+      
+      /* [설명] 사이드바 너비를 조정하려면 아래 260px를 변경하세요 */
+      grid-template-columns: 220px 1fr; 
+      
       gap: 2px;
     }
 
@@ -120,7 +124,6 @@
       margin-bottom: 4px;
     }
     
-    /* [수정] Ph.D. Candidate 폰트 사이즈 0.6rem으로 축소 */
     .profile-role {
       font-size: 0.6rem; 
       color: #666;
@@ -130,7 +133,7 @@
 
     .profile-info {
       list-style: none;
-      font-size: 0.6rem;
+      font-size: 0.6rem; 
       color: #555;
       display: flex;
       flex-direction: column;
@@ -178,13 +181,14 @@
       font-weight: bold; 
       margin-bottom: 14px;
     }
+
+    /* [수정] 본문 글씨 크기 축소 (0.96rem -> 0.9rem) */
     .section p {
-      font-size: 0.96rem;
+      font-size: 0.9rem; 
       line-height: 1.7;
       margin-bottom: 0.7em;
     }
 
-    /* [수정] 문단 간격 1.5배 확대 (1.2em -> 1.8em) */
     #about p {
       line-height: 1.5;
       margin-bottom: 1.8em; 
@@ -202,7 +206,6 @@
       gap: 24px;
     }
     
-    /* [수정] 영상 영역 2배 확대 (220px -> 440px) */
     .highlight-item {
       display: grid;
       grid-template-columns: 500px 1fr; 
@@ -218,7 +221,6 @@
       border: 1px solid #eee;
     }
 
-    /* [수정] 제목 크기 2/3배 축소 (1rem -> 0.67rem) */
     .highlight-title {
       font-weight: 600;
       font-size: 0.75rem; 
@@ -227,21 +229,18 @@
       line-height: 1.4;
     }
     
-    /* 저자 정보 스타일 */
     .highlight-authors {
-      font-size: 0.6rem; /* 제목보다 약간 작게 */
+      font-size: 0.6rem;
       color: #444;
       margin-bottom: 6px;
       line-height: 1.4;
     }
     
-    /* 강조 텍스트 (본인 이름, 저널명) */
     .highlight-bold-blue {
       font-weight: bold;
       color: var(--highlight-blue);
     }
 
-    /* [수정] 링크 폰트 크기 2/3배 축소 (0.85rem -> 0.57rem) */
     .highlight-links {
       margin-top: 6px;
       font-size: 0.57rem; 
@@ -256,7 +255,7 @@
       font-size: 0.95rem;
     }
 
-    /* 반응형: 화면이 좁아지면 1단으로 변경 */
+    /* 반응형 */
     @media (max-width: 900px) {
       .page-wrapper {
         grid-template-columns: 1fr;
@@ -266,7 +265,7 @@
         margin-bottom: 24px;
       }
       .highlight-item {
-        grid-template-columns: 1fr; /* 모바일에서는 영상 꽉 차게 */
+        grid-template-columns: 1fr;
       }
       .highlight-thumb {
         max-width: 100%;
@@ -285,7 +284,7 @@
         <a href="about.html">About</a>
         <a href="research.html">Research</a>
         <a href="publications.html">Publications</a>
-        </nav>
+      </nav>
     </div>
   </header>
 
