@@ -9,11 +9,12 @@
     :root {
       --bg: #ffffff;
       --text: #333;
-      --accent: #007acc;
+      --accent: #007acc; /* 기본 링크 색상 (상단 네비게이션 등) */
       --navbar-bg: #f5f5f5;
       --sidebar-font-size: 0.6rem; 
-      --highlight-blue: #0056b3;
-      --hello-color: #3b6683; /* [추가] Hello 섹션 전용 색상 변수 */
+      
+      /* [색상 통일] Hello 섹션과 Research Highlight 모두 이 색상(#3b6683)을 사용 */
+      --unified-blue: #3b6683; 
     }
 
     * {
@@ -111,7 +112,6 @@
       width: 100%;
       border-radius: 4px;
       object-fit: cover;
-      /* [수정] 아래 여백 30px -> 15px로 축소 */
       margin: 0 0 15px 0;
     }
     .profile-name {
@@ -184,18 +184,17 @@
       margin-bottom: 0.7em;
     }
 
-    /* [수정] Hello! 제목 스타일 */
+    /* [수정] Hello! 제목 스타일 (통일된 색상 적용) */
     #about .section-title {
-      color: var(--hello-color); 
+      color: var(--unified-blue); 
       margin-bottom: 1.2em; 
-      /* [수정] 글씨 크기 1.2배 확대 (1.1rem * 1.2 = 1.32rem) */
       font-size: 1.25rem; 
     }
 
-    /* [수정] Hello! 섹션 내 링크 스타일 */
+    /* [수정] Hello! 섹션 내 링크 스타일 (볼드체 복구 및 색상 통일) */
     #about a {
-      font-weight: bold1;
-      color: var(--hello-color); /* 링크 색상도 #3b6683으로 변경 */
+      font-weight: bold; /* 기존 bold1 오타 수정 */
+      color: var(--unified-blue); 
     }
 
     #about p {
@@ -249,18 +248,22 @@
       line-height: 1.4;
     }
     
+    /* [수정] Research Highlight 강조 색상 통일 */
     .highlight-bold-blue {
       font-weight: bold;
-      color: var(--highlight-blue);
+      color: var(--unified-blue);
     }
 
     .highlight-links {
       margin-top: 6px;
       font-size: 0.57rem; 
     }
+    
+    /* [수정] [site], [paper] 링크 색상도 통일 */
     .highlight-links a {
       margin-right: 10px;
       font-weight: 600;
+      color: var(--unified-blue);
     }
 
     .paper-item {
