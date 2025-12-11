@@ -9,11 +9,10 @@
     :root {
       --bg: #ffffff;
       --text: #333;
-      --accent: #007acc; /* 기본 링크 색상 (상단 네비게이션 등) */
+      --accent: #007acc; 
       --navbar-bg: #f5f5f5;
-      --sidebar-font-size: 0.6rem; 
       
-      /* [색상 통일] Hello 섹션과 Research Highlight 모두 이 색상(#3b6683)을 사용 */
+      /* 통합된 파란색 색상 */
       --unified-blue: #3b6683; 
     }
 
@@ -24,8 +23,7 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
     }
@@ -38,17 +36,19 @@
       text-decoration: underline;
     }
 
-    /* 상단 네비게이션 */
+    /* ================= 상단 네비게이션 ================= */
     .top-nav {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
       background: var(--navbar-bg);
+      border-bottom: 1px solid #eaeaea;
       transition: background-color 0.2s ease;
     }
     .top-nav.scrolled {
       background: #f0f0f0;
     }
+    
     .top-nav-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -56,16 +56,65 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
     }
+
     .site-title {
-      font-weight: 600;
-      font-size: 1rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #000;
+      white-space: nowrap;
+    }
+
+    /* PC 버전 메뉴 */
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
     }
     .nav-links a {
-      margin-left: 20px;
-      font-size: 0.76rem;
-      color: #000;
-      letter-spacing: 0.03em;
+      font-size: 0.9rem;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--unified-blue);
+    }
+
+    /* 모바일용 햄버거 버튼 (기본 숨김) */
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    .hamburger-btn span {
+      width: 100%;
+      height: 2px;
+      background-color: #333;
+      border-radius: 2px;
+    }
+
+    /* 모바일용 드롭다운 메뉴 (기본 숨김) */
+    .mobile-dropdown {
+      display: none; /* JS로 토글 */
+      background: var(--navbar-bg);
+      border-top: 1px solid #ddd;
+      padding: 10px 20px;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .mobile-dropdown a {
+      font-size: 0.95rem;
+      color: #333;
+      padding: 5px 0;
+      display: block;
     }
 
     /* 상단 배경 이미지 */
@@ -92,19 +141,16 @@
       padding: 35px 20px 60px; 
       display: grid;
       grid-template-columns: 220px 1fr; 
-      gap: 2px;
+      gap: 40px;
     }
 
-    /* ================= 왼쪽 사이드바 스타일 ================= */
+    /* ================= 왼쪽 사이드바 ================= */
     .sidebar {
       position: relative;
     }
     .profile-card {
       position: sticky;
       top: 88px;
-      background: transparent;
-      padding: 0;
-      text-align: left;
     }
     .profile-photo {
       display: block;
@@ -112,52 +158,73 @@
       width: 100%;
       border-radius: 4px;
       object-fit: cover;
-      margin: 0 0 15px 0;
+      margin-bottom: 15px;
     }
     .profile-name {
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-bottom: 4px;
     }
-    
     .profile-role {
-      font-size: 0.6rem; 
+      font-size: 0.8rem; 
       color: #666;
       margin-bottom: 24px; 
       line-height: 1.4;
     }
 
+    /* Related Link 버튼 (모바일 전용) */
+    .related-links-btn {
+      display: none; /* PC에서는 숨김 */
+      width: 100%;
+      padding: 8px 12px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #333;
+      cursor: pointer;
+      text-align: center;
+      margin-bottom: 15px;
+      transition: background 0.2s;
+    }
+    .related-links-btn:hover {
+      background-color: #f9f9f9;
+    }
+    .related-links-btn:active {
+      background-color: #eee;
+    }
+
+    /* 프로필 정보 리스트 */
     .profile-info {
       list-style: none;
-      font-size: 0.6rem; 
+      font-size: 0.75rem; 
       color: #555;
       display: flex;
       flex-direction: column;
-      gap: 20px; 
+      gap: 12px; 
     }
-
     .profile-info li {
       display: flex;
       align-items: center; 
-      gap: 12px; 
+      gap: 10px; 
     }
-
     .inline-icon {
-      width: 24px;       
-      height: 24px;      
+      width: 20px;       
+      height: 20px;      
       object-fit: contain; 
       flex-shrink: 0;
     }
-
     .sidebar-link {
         color: #555;
         text-decoration: none;
         display: flex;
         align-items: center;
-        gap: 12px; 
+        gap: 10px; 
+        transition: color 0.2s;
     }
     .sidebar-link:hover {
-        color: var(--accent);
+        color: var(--unified-blue);
         text-decoration: underline;
     }
 
@@ -166,120 +233,132 @@
       min-width: 0;
     }
     .section {
-      margin-bottom: 40px;
-    }
-    .section + .section {
-      margin-top: 16px;
+      margin-bottom: 50px;
     }
     
     .section-title {
-      font-size: 1.1rem;
-      font-weight: bold; 
-      margin-bottom: 14px;
+      font-size: 1.3rem;
+      font-weight: 700; 
+      margin-bottom: 16px;
     }
-
     .section p {
-      font-size: 0.9rem; 
+      font-size: 1rem; 
       line-height: 1.7;
-      margin-bottom: 0.7em;
+      margin-bottom: 1em;
+      color: #333;
     }
 
-    /* [수정] Hello! 제목 스타일 (통일된 색상 적용) */
+    /* Hello Section 스타일 */
     #about .section-title {
       color: var(--unified-blue); 
-      margin-bottom: 1.2em; 
-      font-size: 1.25rem; 
     }
-
-    /* [수정] Hello! 섹션 내 링크 스타일 (볼드체 복구 및 색상 통일) */
     #about a {
-      font-weight: bold; /* 기존 bold1 오타 수정 */
+      font-weight: 700;
       color: var(--unified-blue); 
     }
-
     #about p {
-      line-height: 1.5;
-      margin-bottom: 1.5em; 
-      text-align: justify;
-    }
-    
-    #research {
-      margin-top: 60px;
-    }
-
-    #research p {
       text-align: justify;
     }
 
-    /* Research Highlights List */
+    /* Research Highlights 스타일 */
     .highlight-list {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 30px;
     }
-    
     .highlight-item {
       display: grid;
-      grid-template-columns: 500px 1fr; 
+      grid-template-columns: 280px 1fr; /* 썸네일 크기 조정 */
       gap: 20px;
       align-items: start;
     }
-    
     .highlight-thumb {
       width: 100%;
       border-radius: 4px;
-      object-fit: cover;
-      display: block;
       border: 1px solid #eee;
+      object-fit: cover;
     }
-
     .highlight-title {
-      font-weight: 600;
-      font-size: 0.75rem; 
-      margin-bottom: 4px;
+      font-weight: 700;
+      font-size: 1rem; 
+      margin-bottom: 6px;
       color: #000;
       line-height: 1.4;
     }
-    
     .highlight-authors {
-      font-size: 0.6rem;
-      color: #444;
-      margin-bottom: 6px;
-      line-height: 1.4;
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 8px;
+      line-height: 1.5;
     }
-    
-    /* [수정] Research Highlight 강조 색상 통일 */
     .highlight-bold-blue {
-      font-weight: bold;
+      font-weight: 700;
       color: var(--unified-blue);
     }
-
     .highlight-links {
-      margin-top: 6px;
-      font-size: 0.57rem; 
+      font-size: 0.85rem; 
     }
-    
-    /* [수정] [site], [paper] 링크 색상도 통일 */
     .highlight-links a {
-      margin-right: 10px;
-      font-weight: 600;
+      margin-right: 12px;
+      font-weight: 700;
       color: var(--unified-blue);
     }
 
-    .paper-item {
-      margin-bottom: 14px;
-      font-size: 0.95rem;
-    }
-
-    /* 반응형 */
+    /* ================= 반응형 (모바일) 스타일 ================= */
     @media (max-width: 900px) {
+      /* 상단 네비게이션 변경 */
+      .top-nav-inner {
+        padding: 12px 20px;
+      }
+
+      /* PC용 메뉴 중 일부 숨김 (Research, Publications) */
+      .nav-links a.desktop-only {
+        display: none;
+      }
+      
+      /* 햄버거 버튼 보이기 */
+      .hamburger-btn {
+        display: flex;
+        margin-left: 15px;
+      }
+
+      /* 레이아웃을 1단으로 변경 */
       .page-wrapper {
         grid-template-columns: 1fr;
+        padding-top: 20px;
       }
+
+      /* 사이드바 프로필 스타일 변경 */
       .profile-card {
         position: static;
-        margin-bottom: 24px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
       }
+
+      /* 프로필 사진 크기 조정 */
+      .profile-photo {
+        max-width: 120px;
+        margin-bottom: 10px;
+      }
+
+      /* Related Link 버튼 보이기 */
+      .related-links-btn {
+        display: block;
+        max-width: 200px; /* 버튼 너무 크지 않게 */
+      }
+
+      /* 프로필 리스트 기본 숨김 (버튼 눌러야 나옴) */
+      .profile-info {
+        display: none;
+        margin-top: 10px;
+        padding-left: 5px;
+      }
+      .profile-info.show {
+        display: flex; /* JS로 클래스 추가시 보임 */
+      }
+
+      /* Research Highlight 레이아웃 */
       .highlight-item {
         grid-template-columns: 1fr;
       }
@@ -295,12 +374,24 @@
   <header class="top-nav">
     <div class="top-nav-inner">
       <div class="site-title">Soo-Hwan Chae</div>
+      
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="publications.html">Publications</a>
+        <a href="research.html" class="desktop-only">Research</a>
+        <a href="publications.html" class="desktop-only">Publications</a>
+        
+        <button class="hamburger-btn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
+    </div>
+    
+    <div class="mobile-dropdown" id="mobileMenu">
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
     </div>
   </header>
 
@@ -321,7 +412,9 @@
           Seoul National University
         </div>
 
-        <ul class="profile-info">
+        <button class="related-links-btn" id="relatedLinksBtn">Related Link</button>
+
+        <ul class="profile-info" id="profileInfoList">
           <li>
             <img src="map_pin_icon.jpg" alt="Location" class="inline-icon" />
             <span>Seoul, Republic of Korea</span>
@@ -395,8 +488,7 @@
         <div class="highlight-list">
           
           <article class="highlight-item">
-            <img src="agile_jc_trim_gif.gif" alt="Jumping robot"
-                 class="highlight-thumb" />
+            <img src="agile_jc_trim_gif.gif" alt="Jumping robot" class="highlight-thumb" />
             <div>
               <div class="highlight-title">
                 Agile and Energy Efficient Jumping-Crawling Robot through Rapid Transition of Locomotion and Jumping Height Adjustment
@@ -415,8 +507,7 @@
           </article>
 
           <article class="highlight-item">
-            <img src="ladybird_trim_gif.gif" alt="Ladybird origami"
-                 class="highlight-thumb" />
+            <img src="ladybird_trim_gif.gif" alt="Ladybird origami" class="highlight-thumb" />
             <div>
               <div class="highlight-title">
                 Ladybird beetle–inspired compliant origami
@@ -435,15 +526,12 @@
           </article>
         </div>
       </section>
-
-      <section class="section" id="publications">
-        <h2 class="section-title">Publications</h2>
-      </section>
-
+      
     </main>
   </div>
 
   <script>
+    // 1. 스크롤 시 헤더 그림자 효과
     window.addEventListener('scroll', function () {
       const header = document.querySelector('.top-nav');
       if (window.scrollY > 0) {
@@ -452,6 +540,31 @@
         header.classList.remove('scrolled');
       }
     });
+
+    // 2. 모바일 메뉴 (햄버거 버튼) 토글
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (hamburgerBtn) {
+      hamburgerBtn.addEventListener('click', () => {
+        // display 속성을 토글 (flex <-> none)
+        if (mobileMenu.style.display === 'flex') {
+          mobileMenu.style.display = 'none';
+        } else {
+          mobileMenu.style.display = 'flex';
+        }
+      });
+    }
+
+    // 3. 모바일 프로필 링크 (Related Link) 토글
+    const relatedLinksBtn = document.getElementById('relatedLinksBtn');
+    const profileInfoList = document.getElementById('profileInfoList');
+
+    if (relatedLinksBtn) {
+      relatedLinksBtn.addEventListener('click', () => {
+        profileInfoList.classList.toggle('show');
+      });
+    }
   </script>
 </body>
 </html>
