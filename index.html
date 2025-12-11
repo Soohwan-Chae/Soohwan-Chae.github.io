@@ -87,7 +87,6 @@
     .page-wrapper {
       max-width: 1200px;
       margin: 0 auto;
-      /* 위쪽 여백 35px -> 35px 유지 (내부 섹션 간격으로 조정함) */
       padding: 35px 20px 60px; 
       display: grid;
       grid-template-columns: 220px 1fr; 
@@ -183,13 +182,13 @@
       margin-bottom: 0.7em;
     }
 
-    /* [수정] Hello! 섹션 스타일링 */
+    /* [수정] Hello! 색상 변경 및 간격 조정 */
     #about .section-title {
-      color: var(--accent); /* 파란색 제목 */
-      margin-bottom: 1.8em; /* 문단 간격과 동일하게 맞춤 */
+      color: #3b6683; /* 요청하신 색상 */
+      /* 문단 간격(1.8em of 0.9rem)과 시각적으로 일치하도록 조정 */
+      margin-bottom: 1.45em; 
     }
 
-    /* [수정] About 내의 링크는 무조건 볼드 처리 */
     #about a {
       font-weight: bold;
     }
@@ -200,9 +199,8 @@
       text-align: justify;
     }
     
-    /* [수정] Research Highlights 섹션 간격 추가 (아래로 내림) */
     #research {
-      margin-top: 60px; /* 기존 간격보다 더 띄움 */
+      margin-top: 60px;
     }
 
     #research p {
@@ -374,8 +372,7 @@
         <p>
           You can find more details <a href="about.html">about me</a>, explore my
           <a href="research.html">research</a>, and check out my
-          <a href="publications.html">publications</a>. You can also download my
-          <a href="cv.pdf" target="_blank">CV</a>.
+          <a href="publications.html">publications</a>.<br /> You can also download my <a href="cv.pdf" target="_blank">CV</a>.
         </p>
         <p>
           Feel free to reach out at
