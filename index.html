@@ -9,7 +9,7 @@
     :root {
       --bg: #ffffff;
       --text: #333;
-      --accent: #007acc; /* 기본 링크 색상 (상단 네비게이션 등) */
+      --accent: #007acc; /* 기본 링크 색상 */
       --navbar-bg: #f5f5f5;
       --sidebar-font-size: 0.6rem; 
       
@@ -38,16 +38,18 @@
       text-decoration: underline;
     }
 
-    /* 상단 네비게이션 */
+    /* ================= 상단 네비게이션 ================= */
     .top-nav {
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100; /* 드롭다운을 위해 z-index 상향 */
       background: var(--navbar-bg);
       transition: background-color 0.2s ease;
+      border-bottom: 1px solid transparent;
     }
     .top-nav.scrolled {
       background: #f0f0f0;
+      border-bottom: 1px solid #eaeaea;
     }
     .top-nav-inner {
       max-width: 1200px;
@@ -60,12 +62,53 @@
     .site-title {
       font-weight: 600;
       font-size: 1rem;
+      color: #000;
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
     }
     .nav-links a {
       margin-left: 20px;
       font-size: 0.76rem;
       color: #000;
       letter-spacing: 0.03em;
+    }
+
+    /* [모바일 전용 요소 - PC에선 숨김] */
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      margin-left: 20px;
+    }
+    .hamburger-btn span {
+      width: 100%;
+      height: 2px;
+      background-color: #333;
+      border-radius: 2px;
+    }
+    .mobile-dropdown {
+      display: none; /* JS로 토글 */
+      background: var(--navbar-bg);
+      border-top: 1px solid #ddd;
+      padding: 10px 20px;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .mobile-dropdown a {
+      font-size: 0.95rem;
+      color: #333;
+      padding: 5px 0;
+      display: block;
+      font-weight: 500;
     }
 
     /* 상단 배경 이미지 */
@@ -125,6 +168,22 @@
       color: #666;
       margin-bottom: 24px; 
       line-height: 1.4;
+    }
+
+    /* [모바일 전용 버튼 - PC에선 숨김] */
+    .related-links-btn {
+      display: none;
+      width: 100%;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #333;
+      cursor: pointer;
+      text-align: center;
+      margin-bottom: 15px;
     }
 
     .profile-info {
@@ -191,9 +250,9 @@
       font-size: 1.25rem; 
     }
 
-    /* [수정] Hello! 섹션 내 링크 스타일 (볼드체 복구 및 색상 통일) */
+    /* [수정] Hello! 섹션 내 링크 스타일 */
     #about a {
-      font-weight: bold; /* 기존 bold1 오타 수정 */
+      font-weight: bold;
       color: var(--unified-blue); 
     }
 
@@ -271,21 +330,80 @@
       font-size: 0.95rem;
     }
 
-    /* 반응형 */
+    /* =========================================
+       반응형 (모바일 최적화)
+       PC 스타일은 건드리지 않고, 900px 이하에서만 동작
+       ========================================= */
     @media (max-width: 900px) {
+      /* 1. 레이아웃 1단 변경 */
       .page-wrapper {
         grid-template-columns: 1fr;
+        padding-top: 20px;
+        gap: 30px;
       }
+
+      /* 2. 상단 네비게이션: Research, Pubs 숨기고 햄버거 노출 */
+      .nav-links a.desktop-only {
+        display: none;
+      }
+      .hamburger-btn {
+        display: flex;
+      }
+
+      /* 3. 프로필 카드 스타일 */
       .profile-card {
         position: static;
         margin-bottom: 24px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 20px;
       }
+      .profile-photo {
+        max-width: 120px; /* 사진 크기 살짝 줄임 */
+      }
+      .profile-role {
+        font-size: 0.9rem; /* 글자 크기 키움 (가독성) */
+      }
+
+      /* 4. Related Link 버튼 및 목록 토글 */
+      .related-links-btn {
+        display: block;
+      }
+      .profile-info {
+        display: none; /* 기본 숨김 */
+        margin-top: 10px;
+      }
+      .profile-info.show {
+        display: flex; /* 버튼 누르면 보임 */
+      }
+      .profile-info li {
+        font-size: 0.9rem; /* 링크 글자 크기 키움 (가독성) */
+      }
+
+      /* 5. 본문 및 하이라이트 가독성 향상 */
+      .section-title {
+        font-size: 1.3rem; /* 제목 더 크게 */
+      }
+      .section p {
+        font-size: 1rem; /* 본문 글자 더 크게 */
+      }
+      
       .highlight-item {
         grid-template-columns: 1fr;
+        gap: 10px;
       }
       .highlight-thumb {
         max-width: 100%;
         height: auto;
+      }
+      /* Research 텍스트들이 모바일에서 너무 작지 않게 조정 */
+      .highlight-title {
+        font-size: 1rem; 
+      }
+      .highlight-authors {
+        font-size: 0.85rem;
+      }
+      .highlight-links {
+        font-size: 0.85rem;
       }
     }
   </style>
@@ -298,9 +416,20 @@
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="publications.html">Publications</a>
+        <a href="research.html" class="desktop-only">Research</a>
+        <a href="publications.html" class="desktop-only">Publications</a>
+        
+        <button class="hamburger-btn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
+    </div>
+
+    <div class="mobile-dropdown" id="mobileMenu">
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
     </div>
   </header>
 
@@ -321,7 +450,9 @@
           Seoul National University
         </div>
 
-        <ul class="profile-info">
+        <button class="related-links-btn" id="relatedLinksBtn">Related Link</button>
+
+        <ul class="profile-info" id="profileInfoList">
           <li>
             <img src="map_pin_icon.jpg" alt="Location" class="inline-icon" />
             <span>Seoul, Republic of Korea</span>
@@ -436,11 +567,11 @@
         </div>
       </section>
 
-
     </main>
   </div>
 
   <script>
+    // 1. 스크롤 시 헤더 그림자
     window.addEventListener('scroll', function () {
       const header = document.querySelector('.top-nav');
       if (window.scrollY > 0) {
@@ -449,6 +580,30 @@
         header.classList.remove('scrolled');
       }
     });
+
+    // 2. 모바일 메뉴 (햄버거 버튼) 토글
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (hamburgerBtn) {
+      hamburgerBtn.addEventListener('click', () => {
+        if (mobileMenu.style.display === 'flex') {
+          mobileMenu.style.display = 'none';
+        } else {
+          mobileMenu.style.display = 'flex';
+        }
+      });
+    }
+
+    // 3. 모바일 프로필 링크 (Related Link) 토글
+    const relatedLinksBtn = document.getElementById('relatedLinksBtn');
+    const profileInfoList = document.getElementById('profileInfoList');
+
+    if (relatedLinksBtn) {
+      relatedLinksBtn.addEventListener('click', () => {
+        profileInfoList.classList.toggle('show');
+      });
+    }
   </script>
 </body>
 </html>
