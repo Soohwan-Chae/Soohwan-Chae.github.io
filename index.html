@@ -87,15 +87,10 @@
     .page-wrapper {
       max-width: 1200px;
       margin: 0 auto;
-      
-      /* [수정] 위쪽 여백(padding-top)을 20px -> 50px로 2.5배 확대 */
-      padding: 50px 20px 60px; 
-      
+      /* 위쪽 여백 35px -> 35px 유지 (내부 섹션 간격으로 조정함) */
+      padding: 35px 20px 60px; 
       display: grid;
-      
-      /* [설명] 사이드바 너비를 조정하려면 아래 260px를 변경하세요 */
       grid-template-columns: 220px 1fr; 
-      
       gap: 2px;
     }
 
@@ -182,11 +177,21 @@
       margin-bottom: 14px;
     }
 
-    /* [수정] 본문 글씨 크기 축소 (0.96rem -> 0.9rem) */
     .section p {
       font-size: 0.9rem; 
       line-height: 1.7;
       margin-bottom: 0.7em;
+    }
+
+    /* [수정] Hello! 섹션 스타일링 */
+    #about .section-title {
+      color: var(--accent); /* 파란색 제목 */
+      margin-bottom: 1.8em; /* 문단 간격과 동일하게 맞춤 */
+    }
+
+    /* [수정] About 내의 링크는 무조건 볼드 처리 */
+    #about a {
+      font-weight: bold;
     }
 
     #about p {
@@ -195,6 +200,11 @@
       text-align: justify;
     }
     
+    /* [수정] Research Highlights 섹션 간격 추가 (아래로 내림) */
+    #research {
+      margin-top: 60px; /* 기존 간격보다 더 띄움 */
+    }
+
     #research p {
       text-align: justify;
     }
@@ -357,9 +367,9 @@
           I’m Soo-Hwan Chae, a Ph.D. candidate in the
           <a href="https://biorobotics.snu.ac.kr/" target="_blank">Biorobotics Lab</a>
           at Seoul National University, working with Prof. Kyu-Jin Cho.
-          My research focuses on developing a <strong>mechanism design</strong> for
-          <strong>robotic systems</strong>, especially in
-          <strong>biologically inspired locomotive robots</strong>.
+          My research focuses on developing a mechanism design for
+          robotic systems, especially in
+          biologically inspired locomotive robots.
         </p>
         <p>
           You can find more details <a href="about.html">about me</a>, explore my
