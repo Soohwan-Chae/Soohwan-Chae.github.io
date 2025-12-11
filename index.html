@@ -13,6 +13,7 @@
       --navbar-bg: #f5f5f5;
       --sidebar-font-size: 0.6rem; 
       --highlight-blue: #0056b3;
+      --hello-color: #3b6683; /* [추가] Hello 섹션 전용 색상 변수 */
     }
 
     * {
@@ -110,7 +111,8 @@
       width: 100%;
       border-radius: 4px;
       object-fit: cover;
-      margin: 0 0 30px 0;
+      /* [수정] 아래 여백 30px -> 15px로 축소 */
+      margin: 0 0 15px 0;
     }
     .profile-name {
       font-weight: 700;
@@ -182,15 +184,18 @@
       margin-bottom: 0.7em;
     }
 
-    /* [수정] Hello! 색상 변경 및 간격 조정 */
+    /* [수정] Hello! 제목 스타일 */
     #about .section-title {
-      color: #3b6683; /* 요청하신 색상 */
-      /* 문단 간격(1.8em of 0.9rem)과 시각적으로 일치하도록 조정 */
+      color: var(--hello-color); 
       margin-bottom: 1.45em; 
+      /* [수정] 글씨 크기 1.2배 확대 (1.1rem * 1.2 = 1.32rem) */
+      font-size: 1.32rem; 
     }
 
+    /* [수정] Hello! 섹션 내 링크 스타일 */
     #about a {
       font-weight: bold;
+      color: var(--hello-color); /* 링크 색상도 #3b6683으로 변경 */
     }
 
     #about p {
@@ -372,7 +377,8 @@
         <p>
           You can find more details <a href="about.html">about me</a>, explore my
           <a href="research.html">research</a>, and check out my
-          <a href="publications.html">publications</a>.<br /> You can also download my <a href="cv.pdf" target="_blank">CV</a>.
+          <a href="publications.html">publications</a>.<br />
+          You can also download my <a href="cv.pdf" target="_blank">CV</a>.
         </p>
         <p>
           Feel free to reach out at
