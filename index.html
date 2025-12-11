@@ -42,7 +42,7 @@
     .top-nav {
       position: sticky;
       top: 0;
-      z-index: 100; /* 드롭다운을 위해 z-index 상향 */
+      z-index: 100;
       background: var(--navbar-bg);
       transition: background-color 0.2s ease;
       border-bottom: 1px solid transparent;
@@ -243,7 +243,7 @@
       margin-bottom: 0.7em;
     }
 
-    /* [수정] Hello! 제목 스타일 (통일된 색상 적용) */
+    /* [수정] Hello! 제목 스타일 */
     #about .section-title {
       color: var(--unified-blue); 
       margin-bottom: 1.2em; 
@@ -307,7 +307,6 @@
       line-height: 1.4;
     }
     
-    /* [수정] Research Highlight 강조 색상 통일 */
     .highlight-bold-blue {
       font-weight: bold;
       color: var(--unified-blue);
@@ -318,7 +317,6 @@
       font-size: 0.57rem; 
     }
     
-    /* [수정] [site], [paper] 링크 색상도 통일 */
     .highlight-links a {
       margin-right: 10px;
       font-weight: 600;
@@ -350,27 +348,38 @@
         display: flex;
       }
 
-      /* 3. 프로필 카드 스타일 */
+      /* 3. 프로필 카드 스타일 (버튼 위치 수정 포함) */
       .profile-card {
-        position: static;
+        position: relative; /* 절대 위치 배치를 위한 기준점 */
         margin-bottom: 24px;
         border-bottom: 1px solid #eee;
         padding-bottom: 20px;
       }
+      
       .profile-photo {
-        max-width: 120px; /* 사진 크기 살짝 줄임 */
+        max-width: 120px; /* 사진 크기 */
       }
+      
       .profile-role {
         font-size: 0.9rem; /* 글자 크기 키움 (가독성) */
       }
 
-      /* 4. Related Link 버튼 및 목록 토글 */
+      /* [수정] Related Link 버튼을 우측 상단으로 이동 */
       .related-links-btn {
         display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: auto;
+        min-width: 100px;
+        margin: 0;
+        padding: 6px 12px;
       }
+
+      /* 4. 목록 토글 */
       .profile-info {
         display: none; /* 기본 숨김 */
-        margin-top: 10px;
+        margin-top: 20px; /* 목록이 펼쳐질 때 간격 */
       }
       .profile-info.show {
         display: flex; /* 버튼 누르면 보임 */
@@ -395,7 +404,6 @@
         max-width: 100%;
         height: auto;
       }
-      /* Research 텍스트들이 모바일에서 너무 작지 않게 조정 */
       .highlight-title {
         font-size: 1rem; 
       }
