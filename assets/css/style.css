@@ -1,0 +1,26 @@
+/ (repo root)
+  index.html
+  about.html
+  research.html
+  publications.html
+
+  assets/
+    css/
+      style.css
+    js/
+      main.js
+    img/
+      background.jpg
+      Profile.jpg
+      map_pin_icon.jpg
+      BRL_icon.jpg
+      cv_icon.jpg
+      scholar_icon.jpg
+      linkedin_icon.png
+      mail_icon.jpg
+      agile_jc_trim_gif.gif
+      ladybird_trim_gif.gif
+    files/
+      cv.pdf
+      agile_jc_pdf.pdf
+      ladybird_pdf.pdf
