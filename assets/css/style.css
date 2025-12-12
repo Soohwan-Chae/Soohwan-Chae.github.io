@@ -1,15 +1,25 @@
+/* =========================
+   Global / Variables
+   ========================= */
 :root {
   --bg: #ffffff;
   --text: #333;
   --accent: #007acc;
   --navbar-bg: #f5f5f5;
-  --unified-blue: #3b6683;
 
-  --table-header-bg: #f2f2f2;
-  --table-border: #ddd;
+  /* Hello 섹션/Research Highlights 공통 색 */
+  --unified-blue: #3b6683;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -18,10 +28,17 @@ body {
   color: var(--text);
 }
 
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 
-/* ================= 상단 네비게이션 ================= */
+/* =========================
+   Top Navigation
+   ========================= */
 .top-nav {
   position: sticky;
   top: 0;
@@ -30,10 +47,12 @@ a:hover { text-decoration: underline; }
   transition: background-color 0.2s ease;
   border-bottom: 1px solid transparent;
 }
+
 .top-nav.scrolled {
   background: #f0f0f0;
   border-bottom: 1px solid #eaeaea;
 }
+
 .top-nav-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -43,17 +62,22 @@ a:hover { text-decoration: underline; }
   justify-content: space-between;
 }
 
-/* ✅ site title 클릭 시 홈으로 */
 .site-title {
   font-weight: 600;
   font-size: 1rem;
   color: #000;
   text-decoration: none;
-  cursor: pointer;
 }
-.site-title:hover { text-decoration: none; }
+.site-title:hover {
+  text-decoration: none;
+  opacity: 0.9;
+}
 
-.nav-links { display: flex; align-items: center; }
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
 .nav-links a {
   margin-left: 20px;
   font-size: 0.76rem;
@@ -61,7 +85,7 @@ a:hover { text-decoration: underline; }
   letter-spacing: 0.03em;
 }
 
-/* 모바일 햄버거 */
+/* Mobile-only elements */
 .hamburger-btn {
   display: none;
   flex-direction: column;
@@ -80,8 +104,9 @@ a:hover { text-decoration: underline; }
   background-color: #333;
   border-radius: 2px;
 }
+
 .mobile-dropdown {
-  display: none; /* JS로 토글 */
+  display: none; /* JS toggles */
   background: var(--navbar-bg);
   border-top: 1px solid #ddd;
   padding: 10px 20px;
@@ -96,13 +121,20 @@ a:hover { text-decoration: underline; }
   font-weight: 500;
 }
 
-/* 상단 배경 이미지 */
-.background { width: 100%; background: #fff; }
+/* =========================
+   Background Image
+   ========================= */
+.background {
+  width: 100%;
+  background: #fff;
+}
+
 .background-inner {
   max-width: 1200px;
   margin: 8px auto 0;
   padding: 0 20px;
 }
+
 .background-img {
   width: 100%;
   display: block;
@@ -110,7 +142,9 @@ a:hover { text-decoration: underline; }
   object-fit: cover;
 }
 
-/* 전체 레이아웃 */
+/* =========================
+   Layout
+   ========================= */
 .page-wrapper {
   max-width: 1200px;
   margin: 0 auto;
@@ -120,8 +154,10 @@ a:hover { text-decoration: underline; }
   gap: 2px;
 }
 
-/* ================= 왼쪽 사이드바 ================= */
-.sidebar { position: relative; }
+.sidebar {
+  position: relative;
+}
+
 .profile-card {
   position: sticky;
   top: 88px;
@@ -129,6 +165,7 @@ a:hover { text-decoration: underline; }
   padding: 0;
   text-align: left;
 }
+
 .profile-photo {
   display: block;
   max-width: 180px;
@@ -137,11 +174,13 @@ a:hover { text-decoration: underline; }
   object-fit: cover;
   margin: 0 0 15px 0;
 }
+
 .profile-name {
   font-weight: 700;
   font-size: 1.1rem;
   margin-bottom: 4px;
 }
+
 .profile-role {
   font-size: 0.6rem;
   color: #666;
@@ -149,7 +188,7 @@ a:hover { text-decoration: underline; }
   line-height: 1.4;
 }
 
-/* 모바일 Related Link 버튼 */
+/* Mobile-only button */
 .related-links-btn {
   display: none;
   width: 100%;
@@ -173,17 +212,20 @@ a:hover { text-decoration: underline; }
   flex-direction: column;
   gap: 20px;
 }
+
 .profile-info li {
   display: flex;
   align-items: center;
   gap: 12px;
 }
+
 .inline-icon {
   width: 24px;
   height: 24px;
   object-fit: contain;
   flex-shrink: 0;
 }
+
 .sidebar-link {
   color: #555;
   text-decoration: none;
@@ -196,15 +238,23 @@ a:hover { text-decoration: underline; }
   text-decoration: underline;
 }
 
-/* ================= 오른쪽 메인 콘텐츠 ================= */
-.content { min-width: 0; }
+.content {
+  min-width: 0;
+}
 
-.section { margin-bottom: 40px; }
-.section + .section { margin-top: 16px; }
+/* =========================
+   Sections / Typography
+   ========================= */
+.section {
+  margin-bottom: 40px;
+}
+.section + .section {
+  margin-top: 16px;
+}
 
 .section-title {
   font-size: 1.1rem;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 14px;
 }
 
@@ -214,37 +264,45 @@ a:hover { text-decoration: underline; }
   margin-bottom: 0.7em;
 }
 
-/* Home: Hello 스타일 */
+/* Home "Hello!" section style */
 #about .section-title {
   color: var(--unified-blue);
   margin-bottom: 1.2em;
   font-size: 1.25rem;
 }
 #about a {
-  font-weight: bold;
+  font-weight: 700;
   color: var(--unified-blue);
 }
 #about p {
   line-height: 1.5;
   margin-bottom: 1.5em;
-  text-align: justify; /* PC 기본: 양끝 정렬 */
+  text-align: justify;
 }
 
-#research { margin-top: 60px; }
-#research p { text-align: justify; }
+#research {
+  margin-top: 60px;
+}
+#research p {
+  text-align: justify;
+}
 
-/* Research Highlights List */
+/* =========================
+   Research Highlights (Home)
+   ========================= */
 .highlight-list {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
+
 .highlight-item {
   display: grid;
   grid-template-columns: 500px 1fr;
   gap: 20px;
   align-items: start;
 }
+
 .highlight-thumb {
   width: 100%;
   border-radius: 4px;
@@ -252,6 +310,7 @@ a:hover { text-decoration: underline; }
   display: block;
   border: 1px solid #eee;
 }
+
 .highlight-title {
   font-weight: 600;
   font-size: 0.75rem;
@@ -259,16 +318,19 @@ a:hover { text-decoration: underline; }
   color: #000;
   line-height: 1.4;
 }
+
 .highlight-authors {
   font-size: 0.6rem;
   color: #444;
   margin-bottom: 6px;
   line-height: 1.4;
 }
+
 .highlight-bold-blue {
-  font-weight: bold;
+  font-weight: 600;
   color: var(--unified-blue);
 }
+
 .highlight-links {
   margin-top: 6px;
   font-size: 0.57rem;
@@ -279,97 +341,158 @@ a:hover { text-decoration: underline; }
   color: var(--unified-blue);
 }
 
-/* ================= About/CV 스타일 ================= */
-.page-title {
-  font-size: 1.6rem;
-  font-weight: 800;
-  margin-bottom: 18px;
-  color: #222;
-}
-.subsection-title {
-  font-size: 1.25rem;
-  font-weight: 800;
-  margin: 28px 0 14px;
-  color: #222;
-}
-
-/* Research Interests */
-.interest-list {
-  margin-left: 1.2rem;
-  line-height: 1.9;
-  font-size: 1rem;
-}
-.interest-list li { margin: 4px 0; }
-
-/* CV table */
+/* =========================
+   CV-style tables (About / Publications)
+   ========================= */
 .cv-table {
   width: 100%;
   border-collapse: collapse;
-  border-top: 1px solid var(--table-border);
-  border-bottom: 1px solid var(--table-border);
+  background: #fff;
 }
+
 .cv-table thead th {
   text-align: left;
-  background: var(--table-header-bg);
-  padding: 12px 14px;
-  font-size: 0.95rem;
-  font-weight: 700;
+  background: #f0f0f0;
   color: #333;
-  border-bottom: 1px solid var(--table-border);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 12px 14px;
+  border-bottom: 2px solid #cfcfcf;
 }
-.cv-table td {
+
+.cv-table tbody td {
   padding: 14px;
+  border-bottom: 1px solid #d9d9d9;
   vertical-align: top;
-  border-bottom: 1px solid var(--table-border);
-  font-size: 0.98rem;
-  line-height: 1.6;
 }
+
 .cv-period {
-  width: 170px;
-  color: #444;
+  width: 140px;
+  color: #555;
+  font-weight: 500;
   white-space: nowrap;
 }
+
 .cv-role {
-  font-weight: 800;
-  color: #1f3550;
-  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--unified-blue);
+  margin-bottom: 4px;
 }
-.cv-line { color: #444; }
-.cv-muted { color: #666; }
 
-.cv-bullets { margin: 8px 0 0 1.2rem; }
-.cv-bullets li { margin: 6px 0; }
+.cv-line {
+  color: #444;
+  margin-top: 2px;
+}
 
-/* =========================================
-   반응형 (모바일 - 900px 이하)
-   ========================================= */
+.cv-muted {
+  color: #666;
+  margin-top: 4px;
+}
+
+.cv-bullets {
+  margin-top: 6px;
+  margin-left: 1.2rem;
+  padding-left: 0;
+}
+.cv-bullets li {
+  margin: 3px 0;
+}
+
+/* Research interests list base */
+.interest-list {
+  margin-left: 1.2rem;
+  padding-left: 1.2rem;
+}
+.interest-list li {
+  margin: 4px 0;
+}
+
+/* =========================
+   About page overrides (UPDATED)
+   ========================= */
+
+/* Research Interests: 서브항목이 한 번만 들어가도록 */
+.about-page .interest-list{
+  padding-left: 1.8rem;
+  font-size: 0.85rem;
+  line-height: 1.42;
+}
+.about-page .interest-list > li{
+  margin: 2px 0;
+  padding-left: 0;
+}
+.about-page .interest-list > li > ul{
+  list-style: circle;
+  margin: 2px 0 0 1.0rem;
+  padding-left: 0;           /* 이중 들여쓰기 제거 핵심 */
+}
+.about-page .interest-list > li > ul > li{
+  margin: 1px 0;
+}
+
+/* Experience~Teaching Experiences 내용 글자 -2pt 정도 */
+.about-page .cv-table td,
+.about-page .cv-bullets,
+.about-page .cv-muted,
+.about-page .cv-line{
+  font-size: 0.83rem;
+  line-height: 1.42;
+}
+
+/* Period 칸 최대한 줄이되 자동 줄바꿈 방지 */
+.about-page .cv-period{
+  width: 120px;
+  white-space: nowrap;
+}
+
+/* 파란 볼드 굵기 완화 */
+.about-page .cv-role{
+  font-weight: 600;
+  color: var(--unified-blue);
+}
+.about-page .highlight-bold-blue{
+  font-weight: 600;
+}
+
+/* =========================
+   Responsive (<= 900px)
+   ========================= */
 @media (max-width: 900px) {
   .page-wrapper {
     grid-template-columns: 1fr;
-    padding-top: 8px;
+    padding-top: 5px;     /* background-프로필 간격 축소 */
     gap: 30px;
   }
 
   .background-img {
-    height: 100px;
+    height: 100px;        /* 모바일에서 상단 이미지 높이 축소 */
     object-fit: cover;
   }
 
-  .nav-links a.desktop-only { display: none; }
-  .hamburger-btn { display: flex; }
+  /* Nav */
+  .nav-links a.desktop-only {
+    display: none;
+  }
+  .hamburger-btn {
+    display: flex;
+  }
 
-  /* ✅ 모바일에서 profile-card 밀림(top:88px) 제거 */
+  /* Profile card */
   .profile-card {
     position: relative;
-    top: 0;
     margin-bottom: 24px;
     border-bottom: 1px solid #eee;
     padding-bottom: 20px;
     margin-top: 0;
   }
 
-  .profile-photo { max-width: 90px; }
-  .profile-role { font-size: 0.9rem; }
+  .profile-photo {
+    max-width: 90px;
+  }
+
+  .profile-role {
+    font-size: 0.9rem;
+  }
 
   .related-links-btn {
     display: block;
@@ -382,41 +505,51 @@ a:hover { text-decoration: underline; }
     padding: 6px 12px;
   }
 
-  .profile-info { display: none; margin-top: 20px; }
-  .profile-info.show { display: flex; }
-  .profile-info li { font-size: 0.9rem; }
+  .profile-info {
+    display: none;
+    margin-top: 20px;
+  }
+  .profile-info.show {
+    display: flex;
+  }
+  .profile-info li {
+    font-size: 0.9rem;
+  }
 
-  .section-title { font-size: 1.3rem; }
-  .section p { font-size: 1rem; }
+  /* Content */
+  .section-title {
+    font-size: 1.3rem;
+  }
 
-  /* ✅ 모바일에서 Home Hello만 왼쪽 정렬 */
-  #about p { text-align: left; }
+  .section p {
+    font-size: 1rem;
+    text-align: left;     /* 모바일에서만 왼쪽 정렬 */
+  }
 
+  /* Research highlights */
   .highlight-item {
     grid-template-columns: 1fr;
     gap: 10px;
   }
-  .highlight-thumb { max-width: 100%; height: auto; }
-  .highlight-title { font-size: 1rem; }
-  .highlight-authors { font-size: 0.85rem; }
-  .highlight-links { font-size: 0.85rem; }
-
-  /* About 테이블 -> 카드형 */
-  .cv-table thead { display: none; }
-  .cv-table, .cv-table tbody, .cv-table tr, .cv-table td {
-    display: block;
-    width: 100%;
+  .highlight-thumb {
+    max-width: 100%;
+    height: auto;
   }
-  .cv-table tr { border-bottom: 1px solid var(--table-border); }
-  .cv-table td {
-    border: none;
-    padding: 12px 10px;
+  .highlight-title {
+    font-size: 1rem;
+  }
+  .highlight-authors {
+    font-size: 0.85rem;
+  }
+  .highlight-links {
+    font-size: 0.85rem;
+  }
+
+  /* Tables */
+  .cv-table thead th {
+    font-size: 0.95rem;
   }
   .cv-period {
-    width: 100%;
-    font-weight: 700;
-    color: #333;
-    padding-bottom: 4px;
-    white-space: normal;
+    width: 120px;
   }
 }
