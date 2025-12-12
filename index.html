@@ -333,10 +333,11 @@
        PC 스타일은 건드리지 않고, 900px 이하에서만 동작
        ========================================= */
     @media (max-width: 900px) {
-      /* 1. 레이아웃 1단 변경 */
+      /* 1. 레이아웃 1단 변경 및 상단 여백 축소 */
       .page-wrapper {
         grid-template-columns: 1fr;
-        padding-top: 20px;
+        /* [수정] 상단 여백을 20px -> 7px로 축소 (1/3 수준) */
+        padding-top: 7px;
         gap: 30px;
       }
 
@@ -364,7 +365,7 @@
         font-size: 0.9rem; /* 글자 크기 키움 (가독성) */
       }
 
-      /* [수정] Related Link 버튼을 우측 상단으로 이동 */
+      /* Related Link 버튼을 우측 상단으로 이동 */
       .related-links-btn {
         display: block;
         position: absolute;
@@ -394,6 +395,11 @@
       }
       .section p {
         font-size: 1rem; /* 본문 글자 더 크게 */
+      }
+
+      /* [수정] Hello 섹션 텍스트 왼쪽 정렬 (양끝 정렬 해제) */
+      #about p {
+        text-align: left;
       }
       
       .highlight-item {
