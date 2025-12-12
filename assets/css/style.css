@@ -340,6 +340,42 @@ a:hover { text-decoration: underline; }
 .cv-bullets { margin: 8px 0 0 1.2rem; }
 .cv-bullets li { margin: 6px 0; }
 
+/* =========================
+   About page typography tweaks
+   ========================= */
+.about-page .interest-list{
+  padding-left: 2.1rem;      /* 탭(들여쓰기) 조금 더 */
+  font-size: 0.85rem;        /* 약 -2pt */
+  line-height: 1.45;         /* 문장 간격 좁힘 */
+}
+.about-page .interest-list > li{
+  margin: 2px 0;             /* 항목 간격 좁힘 */
+  padding-left: 0.25rem;     /* 항목 텍스트 탭 느낌 */
+}
+.about-page .interest-list li ul{
+  margin-top: 2px;
+  margin-left: 1.2rem;       /* 하위 항목 탭 */
+}
+.about-page .interest-list li ul li{
+  margin: 1px 0;
+}
+
+/* Research Interests 이외(표/불릿/설명) 글자 크기 -2pt */
+.about-page .cv-table td{
+  font-size: 0.85rem;        /* 약 -2pt */
+  line-height: 1.45;
+}
+.about-page .cv-bullets{
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+.about-page .cv-muted,
+.about-page .cv-line{
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+
 /* =========================================
    반응형 (모바일 - 900px 이하)
    ========================================= */
