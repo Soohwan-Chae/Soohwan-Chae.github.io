@@ -59,10 +59,17 @@
       align-items: center;
       justify-content: space-between;
     }
+
+    /* ✅ [수정 3] 사이트 타이틀을 링크로 (클릭 시 홈으로) */
     .site-title {
       font-weight: 600;
       font-size: 1rem;
       color: #000;
+      text-decoration: none; /* 링크 밑줄 제거 */
+      cursor: pointer;
+    }
+    .site-title:hover {
+      text-decoration: none; /* global a:hover의 underline 방지 */
     }
     
     .nav-links {
@@ -259,7 +266,7 @@
     #about p {
       line-height: 1.5;
       margin-bottom: 1.5em; 
-      text-align: justify;
+      text-align: justify; /* 기본: PC에서는 양끝 정렬 */
     }
     
     #research {
@@ -332,26 +339,20 @@
        반응형 (모바일 최적화 - 900px 이하)
        ========================================= */
     @media (max-width: 900px) {
-      /* 1. 레이아웃 및 상단 공간 축소 
-         - 배경 이미지 공간과 프로필 사이의 간격을 줄이기 위해
-           page-wrapper의 padding-top을 대폭 축소 (기존 PC 35px -> 모바일 5px)
-      */
+      /* 레이아웃 */
       .page-wrapper {
         grid-template-columns: 1fr;
-        padding-top: 5px; 
+        padding-top: 8px;
         gap: 30px;
       }
       
-      /* [추가] 배경 이미지 공간 축소 
-         - 모바일에서 이미지가 너무 높게 나오지 않도록 높이를 제한(120px)
-         - 공간 자체를 줄임 
-      */
+      /* 배경 이미지 높이 축소 */
       .background-img {
-        height: 100px; 
-        object-fit: cover; /* 찌그러짐 방지 */
+        height: 100px;
+        object-fit: cover;
       }
 
-      /* 2. 상단 네비게이션: Research, Pubs 숨기고 햄버거 노출 */
+      /* 상단 네비게이션: Research, Pubs 숨기고 햄버거 노출 */
       .nav-links a.desktop-only {
         display: none;
       }
@@ -359,14 +360,14 @@
         display: flex;
       }
 
-      /* 3. 프로필 카드 스타일 */
+      /* ✅ [수정 1] 모바일에서 profile-card가 아래로 밀리는(top:88px) 현상 제거 */
       .profile-card {
-        position: relative; 
+        position: relative;
+        top: 0;                 /* 핵심: sticky top 값 영향 제거 */
         margin-bottom: 24px;
         border-bottom: 1px solid #eee;
         padding-bottom: 20px;
-        /* 프로필 카드 상단 여백도 최소화 */
-        margin-top: 0; 
+        margin-top: 0;
       }
       
       .profile-photo {
@@ -389,7 +390,7 @@
         padding: 6px 12px;
       }
 
-      /* 4. 목록 토글 */
+      /* 목록 토글 */
       .profile-info {
         display: none; 
         margin-top: 20px; 
@@ -401,13 +402,17 @@
         font-size: 0.9rem; 
       }
 
-      /* 5. 본문 및 하이라이트 */
+      /* 본문 및 하이라이트 */
       .section-title {
         font-size: 1.3rem;
       }
       .section p {
         font-size: 1rem;
-        text-align: left; /* [수정] 모바일에서만 왼쪽 정렬 */
+      }
+
+      /* ✅ [수정 2] 모바일에서만 Hello(#about) 문단 왼쪽 정렬 */
+      #about p {
+        text-align: left;
       }
       
       .highlight-item {
@@ -434,7 +439,9 @@
 <body>
   <header class="top-nav">
     <div class="top-nav-inner">
-      <div class="site-title">Soo-Hwan Chae</div>
+      <!-- ✅ [수정 3] 클릭 시 index.html로 이동 -->
+      <a class="site-title" href="index.html">Soo-Hwan Chae</a>
+
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
