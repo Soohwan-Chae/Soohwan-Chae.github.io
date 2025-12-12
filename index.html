@@ -4,17 +4,12 @@
   <meta charset="UTF-8" />
   <title>Soo-Hwan Chae</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<link rel="stylesheet" href="assets/css/style.css" />
 
 <body>
-  <script src="assets/js/main.js"></script>
-
   <header class="top-nav">
     <div class="top-nav-inner">
-      <!-- ✅ [수정 3] 클릭 시 index.html로 이동 -->
       <a class="site-title" href="index.html">Soo-Hwan Chae</a>
 
       <nav class="nav-links">
@@ -22,16 +17,16 @@
         <a href="about.html">About</a>
         <a href="research.html" class="desktop-only">Research</a>
         <a href="publications.html" class="desktop-only">Publications</a>
-        
+
         <button class="hamburger-btn" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
       </nav>
     </div>
 
     <div class="mobile-dropdown" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
       <a href="research.html">Research</a>
       <a href="publications.html">Publications</a>
     </div>
@@ -39,16 +34,16 @@
 
   <div class="background">
     <div class="background-inner">
-      <img src="background.jpg" alt="Background image" class="background-img" />
+      <img src="assets/img/background.jpg" alt="Background image" class="background-img" />
     </div>
   </div>
 
   <div class="page-wrapper" id="home">
     <aside class="sidebar">
       <div class="profile-card">
-        <img src="Profile.jpg" alt="Profile photo" class="profile-photo" />
+        <img src="assets/img/Profile.jpg" alt="Profile photo" class="profile-photo" />
         <div class="profile-name">Soo-Hwan Chae</div>
-        
+
         <div class="profile-role">
           Ph.D. Candidate in<br />
           Seoul National University
@@ -58,66 +53,67 @@
 
         <ul class="profile-info" id="profileInfoList">
           <li>
-            <img src="map_pin_icon.jpg" alt="Location" class="inline-icon" />
+            <img src="assets/img/map_pin_icon.jpg" alt="Location" class="inline-icon" />
             <span>Seoul, Republic of Korea</span>
           </li>
-          
+
           <li>
             <a href="https://biorobotics.snu.ac.kr" target="_blank" class="sidebar-link">
-              <img src="BRL_icon.jpg" alt="Lab" class="inline-icon" />
+              <img src="assets/img/BRL_icon.jpg" alt="Lab" class="inline-icon" />
               Biorobotics Lab, SNU
             </a>
           </li>
 
           <li>
-            <a href="cv.pdf" target="_blank" class="sidebar-link">
-              <img src="cv_icon.jpg" alt="CV" class="inline-icon" />
+            <a href="assets/files/cv.pdf" target="_blank" class="sidebar-link">
+              <img src="assets/img/cv_icon.jpg" alt="CV" class="inline-icon" />
               Download CV
             </a>
           </li>
 
           <li>
             <a href="https://scholar.google.com/citations?user=mJAXmwgAAAAJ&hl=en&oi=ao" target="_blank" class="sidebar-link">
-              <img src="scholar_icon.jpg" alt="Google Scholar" class="inline-icon" />
+              <img src="assets/img/scholar_icon.jpg" alt="Google Scholar" class="inline-icon" />
               Google Scholar
             </a>
           </li>
 
           <li>
             <a href="https://www.linkedin.com/in/soo-hwan-chae-69621a24a/" target="_blank" class="sidebar-link">
-              <img src="linkedin_icon.png" alt="LinkedIn" class="inline-icon" />
+              <img src="assets/img/linkedin_icon.png" alt="LinkedIn" class="inline-icon" />
               LinkedIn
             </a>
           </li>
 
           <li>
             <a href="mailto:0331csh@gmail.com" class="sidebar-link">
-              <img src="mail_icon.jpg" alt="Email" class="inline-icon" />
+              <img src="assets/img/mail_icon.jpg" alt="Email" class="inline-icon" />
               Email
             </a>
           </li>
         </ul>
-
       </div>
     </aside>
 
     <main class="content">
       <section class="section" id="about">
         <h2 class="section-title">Hello!</h2>
+
         <p>
           I’m Soo-Hwan Chae, a Ph.D. candidate in the
           <a href="https://biorobotics.snu.ac.kr/" target="_blank">Biorobotics Lab</a>
           at Seoul National University, working with Prof. Kyu-Jin Cho.
           My research focuses on developing a mechanism design for
-          robotic systems, especially in
-          biologically inspired locomotive robots.
+          robotic systems, especially in biologically inspired locomotive robots.
         </p>
+
         <p>
           You can find more details <a href="about.html">about me</a>, explore my
           <a href="research.html">research</a>, and check out my
           <a href="publications.html">publications</a>.<br />
-          You can also download my <a href="cv.pdf" target="_blank">CV</a>.
+          You can also download my <a href="assets/files/cv.pdf" target="_blank">CV</a>.
         </p>
+
         <p>
           Feel free to reach out at
           <a href="mailto:0331csh@gmail.com">0331csh@gmail.com</a>.
@@ -128,15 +124,13 @@
         <h2 class="section-title">Research Highlights</h2>
 
         <div class="highlight-list">
-          
           <article class="highlight-item">
-            <img src="agile_jc_trim_gif.gif" alt="Jumping robot"
-                 class="highlight-thumb" />
+            <img src="assets/img/agile_jc_trim_gif.gif" alt="Jumping robot" class="highlight-thumb" />
             <div>
               <div class="highlight-title">
                 Agile and Energy Efficient Jumping-Crawling Robot through Rapid Transition of Locomotion and Jumping Height Adjustment
               </div>
-              
+
               <div class="highlight-authors">
                 <span class="highlight-bold-blue">S.-H. Chae</span>, S.-M. Baek, J. Lee, and K.-J. Cho<br/>
                 <span class="highlight-bold-blue">IEEE/ASME Transactions on Mechatronics, 2022.</span>
@@ -144,36 +138,34 @@
 
               <div class="highlight-links">
                 <a href="https://ieeexplore.ieee.org/document/9842346" target="_blank">[site]</a>
-                <a href="agile_jc_pdf.pdf" target="_blank">[paper]</a>
+                <a href="assets/files/agile_jc_pdf.pdf" target="_blank">[paper]</a>
               </div>
             </div>
           </article>
 
           <article class="highlight-item">
-            <img src="ladybird_trim_gif.gif" alt="Ladybird origami"
-                 class="highlight-thumb" />
+            <img src="assets/img/ladybird_trim_gif.gif" alt="Ladybird origami" class="highlight-thumb" />
             <div>
               <div class="highlight-title">
                 Ladybird beetle–inspired compliant origami
               </div>
-              
+
               <div class="highlight-authors">
-                Baek, S. M., Yim, S., <span class="highlight-bold-blue">Chae, S. H.</span>, Lee, D. Y., & Cho, K. J<br/>
+                Baek, S. M., Yim, S., <span class="highlight-bold-blue">Chae, S. H.</span>, Lee, D. Y., &amp; Cho, K. J<br/>
                 <span class="highlight-bold-blue">Science Robotics, 2020.</span>
               </div>
 
               <div class="highlight-links">
                 <a href="https://www.science.org/doi/10.1126/scirobotics.aaz6262" target="_blank">[site]</a>
-                <a href="ladybird_pdf.pdf" target="_blank">[paper]</a>
+                <a href="assets/files/ladybird_pdf.pdf" target="_blank">[paper]</a>
               </div>
             </div>
           </article>
         </div>
       </section>
-
     </main>
   </div>
 
-
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
