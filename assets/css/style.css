@@ -47,9 +47,7 @@ body{
   padding-top:var(--nav-h);
 }
 
-body.modal-open{
-  overflow:hidden;
-}
+body.modal-open{ overflow:hidden; }
 
 a{color:var(--accent);text-decoration:none;}
 a:hover{text-decoration:underline;}
@@ -87,10 +85,7 @@ a:hover{text-decoration:underline;}
   color:#000;
   text-decoration:none;
 }
-.site-title:hover{
-  text-decoration:none;
-  opacity:.9;
-}
+.site-title:hover{ text-decoration:none; opacity:.9; }
 
 .nav-links{
   display:flex;
@@ -125,17 +120,12 @@ a:hover{text-decoration:underline;}
 }
 
 /* 기본은 숨김, 모바일에서 open 시 팝업으로 보임 */
-.mobile-dropdown{
-  display:none;
-}
+.mobile-dropdown{ display:none; }
 
 /* =========================
    Background Image
    ========================= */
-.background{
-  width:100%;
-  background:#fff;
-}
+.background{ width:100%; background:#fff; }
 
 .background-inner{
   max-width:var(--container-width);
@@ -162,9 +152,7 @@ a:hover{text-decoration:underline;}
   gap:2px;
 }
 
-.sidebar{
-  position:relative;
-}
+.sidebar{ position:relative; }
 
 .profile-card{
   position:sticky;
@@ -248,19 +236,13 @@ a:hover{text-decoration:underline;}
   text-decoration:underline;
 }
 
-.content{
-  min-width:0;
-}
+.content{ min-width:0; }
 
 /* =========================
    Sections / Typography
    ========================= */
-.section{
-  margin-bottom:40px;
-}
-.section + .section{
-  margin-top:16px;
-}
+.section{ margin-bottom:40px; }
+.section + .section{ margin-top:16px; }
 
 .section-title{
   font-size:1.1rem;
@@ -292,12 +274,8 @@ a:hover{text-decoration:underline;}
   text-align:left;
 }
 
-#research{
-  margin-top:60px;
-}
-#research p{
-  text-align:justify;
-}
+#research{ margin-top:60px; }
+#research p{ text-align:justify; }
 
 /* =========================
    Research Highlights (Home)
@@ -391,45 +369,31 @@ a:hover{text-decoration:underline;}
   margin-bottom:4px;
 }
 
-.cv-line{
-  color:#444;
-  margin-top:2px;
-}
-
-.cv-muted{
-  color:#666;
-  margin-top:4px;
-}
+.cv-line{ color:#444; margin-top:2px; }
+.cv-muted{ color:#666; margin-top:4px; }
 
 .cv-bullets{
   margin-top:6px;
   margin-left:1.2rem;
   padding-left:0;
 }
-.cv-bullets li{
-  margin:3px 0;
-}
+.cv-bullets li{ margin:3px 0; }
 
 /* Research interests list base */
 .interest-list{
   margin-left:1.2rem;
   padding-left:1.2rem;
 }
-.interest-list li{
-  margin:4px 0;
-}
+.interest-list li{ margin:4px 0; }
 
 /* =========================
    About page overrides
    ========================= */
-
-/* ✅ About 페이지 파란 제목 볼드(조금 더 두껍게) */
 .about-page .section-title{
   color:var(--unified-blue);
   font-weight:650;
 }
 
-/* ✅ Research Interests: 중첩 UL 들여쓰기 과다 방지 */
 .about-page .interest-list{
   padding-left:1.2rem;
   margin-left:1.2rem;
@@ -457,9 +421,7 @@ a:hover{text-decoration:underline;}
   transition:opacity 160ms ease;
   touch-action:manipulation;
 }
-.ui-backdrop.show{
-  opacity:1;
-}
+.ui-backdrop.show{ opacity:1; }
 
 .ui-modal{
   position:fixed;
@@ -474,10 +436,7 @@ a:hover{text-decoration:underline;}
   display:none;
   overflow:hidden;
 }
-
-.ui-modal.open{
-  display:block;
-}
+.ui-modal.open{ display:block; }
 
 .ui-modal-header{
   display:flex;
@@ -501,13 +460,9 @@ a:hover{text-decoration:underline;}
   font-size:.85rem;
   cursor:pointer;
 }
-.ui-close-btn:hover{
-  background:#f7f7f7;
-}
+.ui-close-btn:hover{ background:#f7f7f7; }
 
-.ui-modal-body{
-  padding:14px;
-}
+.ui-modal-body{ padding:14px; }
 
 /* 모달 안 리스트(Related Links) */
 .modal-list{
@@ -530,15 +485,11 @@ a:hover{text-decoration:underline;}
 
   .page-wrapper{
     grid-template-columns:1fr;
-
-    /* ✅ 모바일에서 background-프로필 간격 축소 */
     padding:12px var(--container-side-pad) 40px;
     gap:20px;
   }
 
-  .background-inner{
-    margin:0 auto 0;
-  }
+  .background-inner{ margin:0 auto 0; }
 
   .background-img{
     height:110px;
@@ -546,12 +497,8 @@ a:hover{text-decoration:underline;}
   }
 
   /* Nav */
-  .nav-links a.desktop-only{
-    display:none;
-  }
-  .hamburger-btn{
-    display:flex;
-  }
+  .nav-links a.desktop-only{ display:none; }
+  .hamburger-btn{ display:flex; }
 
   /* ✅ 햄버거 메뉴 */
   .mobile-dropdown{
@@ -569,9 +516,7 @@ a:hover{text-decoration:underline;}
     box-shadow:0 10px 30px rgba(0,0,0,.14);
     z-index:950;
   }
-  .mobile-dropdown.open{
-    display:flex;
-  }
+  .mobile-dropdown.open{ display:flex; }
   .mobile-dropdown a{
     font-size:1rem;
     color:#111;
@@ -589,9 +534,7 @@ a:hover{text-decoration:underline;}
     margin-bottom:6px;
   }
 
-  .profile-photo{
-    max-width:90px;
-  }
+  .profile-photo{ max-width:90px; }
 
   .profile-role{
     font-size:clamp(.95rem,1.2vw + .8rem,1.05rem);
@@ -608,15 +551,11 @@ a:hover{text-decoration:underline;}
     padding:6px 12px;
   }
 
-  /* 기존 "펼쳐지는" 방식은 모바일에서 숨김 (모달로 표시) */
-  .profile-info{
-    display:none;
-  }
+  /* mobile에서는 profile-info 숨김(모달로) */
+  .profile-info{ display:none; }
 
   /* Content */
-  .section-title{
-    font-size:1.3rem;
-  }
+  .section-title{ font-size:1.3rem; }
 
   .section p{
     font-size:1rem;
@@ -628,15 +567,9 @@ a:hover{text-decoration:underline;}
     grid-template-columns:1fr;
     gap:10px;
   }
-  .highlight-title{
-    font-size:1rem;
-  }
-  .highlight-authors{
-    font-size:.85rem;
-  }
-  .highlight-links{
-    font-size:.85rem;
-  }
+  .highlight-title{ font-size:1rem; }
+  .highlight-authors{ font-size:.85rem; }
+  .highlight-links{ font-size:.85rem; }
 
   /* 모달 위치 */
   .ui-modal{
@@ -644,7 +577,7 @@ a:hover{text-decoration:underline;}
     width:min(560px,calc(100vw - 24px));
   }
 
-  /* ✅ About 페이지: Period 열 폭 더 줄이기 */
+  /* About 페이지 Period 폭 */
   .about-page .cv-period{
     width:96px;
     white-space:nowrap;
@@ -654,22 +587,17 @@ a:hover{text-decoration:underline;}
 /* =========================================================
    Research page (DESKTOP + MOBILE)
    ========================================================= */
-
-/* 섹션 제목: about 페이지와 같은 파란 볼드 */
 .research-page .section-title{
   color:var(--unified-blue);
   font-weight:650;
 }
 
-/* Research Scope에서 강조 */
-.research-page #research-scope strong{
-  font-weight:700;
-}
+.research-page #research-scope strong{ font-weight:700; }
 
 /* 비디오 레이아웃 공통 */
 .research-page figure.video-card{
   margin:0;
-  min-width:0; /* ✅ 캡션이 grid 폭 밖으로 밀지 않게 */
+  min-width:0;
 }
 
 .research-page .video-frame{
@@ -692,8 +620,8 @@ a:hover{text-decoration:underline;}
 /* ✅ 설명/인용: 본문과 크기/폭 규칙 */
 .research-page .video-caption{
   margin-top:10px;
-  font-size:.9rem;       /* ✅ section p(데스크탑)과 동일 */
-  line-height:1.7;       /* ✅ section p와 동일 */
+  font-size:.9rem;
+  line-height:1.7;
   max-width:100%;
   overflow-wrap:anywhere;
   word-break:break-word;
@@ -707,11 +635,11 @@ a:hover{text-decoration:underline;}
 }
 
 .research-page .video-cite{
-  font-size:.67em;       /* ✅ 설명의 2/3 */
+  font-size:.67em;
   color:#444;
 }
 
-/* 2개 한 줄(가로 꽉 차게) */
+/* 2개 한 줄 */
 .research-page .video-grid-2col{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -720,26 +648,25 @@ a:hover{text-decoration:underline;}
   align-items:start;
 }
 
-/* 3개: 위에 2개, 아래 왼쪽 1개 */
+/* 3개: 위에 2개 + 아래 왼쪽 1개 */
 .research-page .video-grid-2plus1{
   display:grid;
-  grid-template-columns:1fr 1fr; /* ✅ 1,2가 같은 줄 */
+  grid-template-columns:1fr 1fr;
   gap:22px;
   margin-top:18px;
   align-items:start;
 }
 
 .research-page .video-left-bottom{
-  grid-column:1; /* ✅ 왼쪽 아래 */
+  grid-column:1;
 }
 
-/* 1개: 가로 2/3 정도 */
-.research-page .video-wide-2over3{
-  width:66.666%;
-  margin-top:18px;
+/* ✅ 단일 영상도 다른 영상 “카드 폭”과 동일하게(=2열 그리드의 1칸) */
+.research-page .video-grid-2col.video-single .video-card{
+  grid-column:1;
 }
 
-/* 모바일에서는 1열 + 본문처럼 1rem */
+/* 모바일에서는 1열 */
 @media (max-width:900px){
   .research-page .video-grid-2col,
   .research-page .video-grid-2plus1{
@@ -750,19 +677,38 @@ a:hover{text-decoration:underline;}
     grid-column:auto;
   }
 
-  .research-page .video-wide-2over3{
-    width:100%;
+  .research-page .video-grid-2col.video-single .video-card{
+    grid-column:auto;
   }
 
-   .research-page .video-single{
-  grid-template-columns: 1fr 1fr;
-}
-.research-page .video-single .video-card{
-  grid-column: 1; /* ✅ 왼쪽 칼럼(= 다른 섹션의 한 영상 카드와 동일 폭) */
-}
-
-
   .research-page .video-caption{
-    font-size:1rem; /* ✅ 모바일 section p와 동일 */
+    font-size:1rem;
+  }
+}
+
+/* =========================================================
+   Publications page tweaks (앞에서 작업한 것 포함)
+   ========================================================= */
+.publications-page .section-title{
+  color: var(--unified-blue);
+  font-weight: 650;
+}
+
+.publications-page .cv-period{
+  width: 96px;
+  white-space: nowrap;
+}
+
+.publications-page .pdf-link{
+  margin-left: 8px;
+  font-weight: 650;
+  color: var(--unified-blue);
+  text-decoration: none;
+}
+.publications-page .pdf-link:hover{ text-decoration: underline; }
+
+@media (max-width: 900px){
+  .publications-page .cv-period{
+    width: 84px;
   }
 }
