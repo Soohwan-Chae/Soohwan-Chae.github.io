@@ -1,1 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research | Soo-Hwan Chae</title>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/main.js" defer></script>
+</head>
+
+<body class="research-page">
+  <!-- =========================
+       Top Navigation
+       ========================= -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <a class="site-title" href="index.html">Soo-Hwan Chae</a>
+
+      <nav class="nav-links">
+        <a class="desktop-only" href="index.html">HOME</a>
+        <a class="desktop-only" href="about.html">ABOUT</a>
+        <a class="desktop-only" href="research.html">RESEARCH</a>
+        <a class="desktop-only" href="publications.html">PUBLICATIONS</a>
+
+        <button class="hamburger-btn" type="button" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Mobile Menu (JS toggles) -->
+    <div id="mobileMenu" class="mobile-dropdown">
+      <a href="index.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="research.html">RESEARCH</a>
+      <a href="publications.html">PUBLICATIONS</a>
+    </div>
+  </header>
+
+  <!-- =========================
+       Background Image
+       ========================= -->
+  <div class="background">
+    <div class="background-inner">
+      <!-- 너가 쓰는 이미지 경로로 유지/교체 -->
+      <img class="background-img" src="assets/img/background.jpg" alt="Background" />
+    </div>
+  </div>
+
+  <!-- =========================
+       Main Layout
+       ========================= -->
+  <div class="page-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="profile-card">
+        <!-- 너가 쓰는 프로필 이미지 경로로 유지/교체 -->
+        <img class="profile-photo" src="assets/img/profile.jpg" alt="Profile photo" />
+
+        <div class="profile-name">Soo-Hwan Chae</div>
+        <div class="profile-role">
+          Ph.D. Candidate<br />
+          BioRobotics Lab, Seoul National University
+        </div>
+
+        <!-- Mobile-only Related Links Button -->
+        <button id="relatedLinksBtn" class="related-links-btn" type="button">
+          Related Links
+        </button>
+
+        <!-- Related Links List (desktop에서는 그대로 보이고, mobile에서는 팝업으로 복제됨) -->
+        <ul id="profileInfoList" class="profile-info">
+          <!-- 아래 항목들은 네 about.html과 동일하게 맞춰도 됨 -->
+          <li>
+            <a class="sidebar-link" href="mailto:your.email@snu.ac.kr">
+              <img class="inline-icon" src="assets/img/icons/email.png" alt="Email" />
+              your.email@snu.ac.kr
+            </a>
+          </li>
+          <li>
+            <a class="sidebar-link" href="assets/files/CV.pdf" target="_blank" rel="noopener">
+              <img class="inline-icon" src="assets/img/icons/cv.png" alt="CV" />
+              Download CV
+            </a>
+          </li>
+          <li>
+            <a class="sidebar-link" href="#" target="_blank" rel="noopener">
+              <img class="inline-icon" src="assets/img/icons/scholar.png" alt="Google Scholar" />
+              Google Scholar
+            </a>
+          </li>
+          <li>
+            <a class="sidebar-link" href="#" target="_blank" rel="noopener">
+              <img class="inline-icon" src="assets/img/icons/github.png" alt="GitHub" />
+              GitHub
+            </a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <main class="content">
+      <!-- =========================
+           Research Scope
+           ========================= -->
+      <section class="section" id="research-scope">
+        <h2 class="section-title">Research Scope</h2>
+        <p>
+          My research focuses on improving the mobility of centimeter-scale robots. Their small size lets them reach confined spaces, and their light weight makes it practical to deploy many at once—an advantage for exploration. But small scale also makes movement harder: bumps, gaps, and clutter that seem minor to us can become major barriers for a centimeter-scale robot. In contrast, small creatures move with specialized locomotion to adaptively move on their environments. Inspired by these biological strategies, I build small locomotive robots with improved mobility.
+        </p>
+        <p>
+          Still, I believe today’s small robots have not yet reached the level of their biological counterparts. Cockroaches, for example, traverse an impressive range of terrain by utilizing lightweight, compliant bodies with high-traction legs. This gap is what motivates my work, and my research dream is to create small robots that can move across any environment.
+        </p>
+      </section>
+
+      <!-- =========================
+           Jumping-Crawling Robot
+           ========================= -->
+      <section class="section" id="jumping-crawling">
+        <h2 class="section-title">Jumping-Crawling Robot</h2>
+
+        <div class="video-grid video-grid-3">
+          <!-- Video 1 -->
+          <figure class="video-card">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/itiYHCs4LM0?rel=0"
+                title="Jumping-Crawling Robot Video 1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption class="video-caption">
+              <div class="video-desc">
+                Agile and Energy-Efficient Jumping-Crawling Robot Through Rapid Transition of Locomotion and Enhanced Jumping Height Adjustment
+              </div>
+              <div class="video-cite">
+                <strong>S.-H. Chae</strong>, S.-M. Baek, J. Lee, and K.-J. Cho, “Agile and Energy-Efficient Jumping-Crawling Robot Through Rapid Transition of Locomotion and Enhanced Jumping Height Adjustment,” in IEEE/ASME Transactions on Mechatronics (I.F. 6.1), 2022, 27.6: 5890-5901.
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- Video 2 -->
+          <figure class="video-card">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/Nyt_22xAYE8?rel=0"
+                title="Jumping-Crawling Robot Video 2"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption class="video-caption">
+              <div class="video-desc">
+                Development of the sub-10 cm, sub-100 g jumping–crawling robot
+              </div>
+              <div class="video-cite">
+                Yim, S. * , Baek, S. M. * , Lee, P., <strong>Chae, S. H.</strong>, Lee, J., Huh, S. H., … &amp; Cho, K. J., “Development of the sub-10 cm, sub-100 g jumping–crawling robot”, in Intelligent Service Robotics (I.F. 2.3), 2024, 17.1: 19-32.
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- Video 3 (왼쪽 아래) -->
+          <figure class="video-card video-card-left-bottom">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/kekOiptWL6U?rel=0"
+                title="Jumping-Crawling Robot Video 3"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption class="video-caption">
+              <div class="video-desc">
+                JumpRoACH: A Trajectory-Adjustable Integrated Jumping-Crawling Robot
+              </div>
+              <div class="video-cite">
+                Gwang-Pil Jung, Carlos S. Casarez, Jongeun Lee, Sang-Min Baek, So-Jung Yim, <strong>Soo-Hwan Chae</strong>, Ronald S. Fearing, and Kyu-Jin Cho, “JumpRoACH: A Trajectory-Adjustable Integrated Jumping-Crawling Robot”, in IEEE/ASME Transactions on Mechatronics (I.F. 6.1), 2019, 24.3: 947-958.
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- =========================
+           Jumping-Gliding Robot
+           ========================= -->
+      <section class="section" id="jumping-gliding">
+        <h2 class="section-title">Jumping-Gliding Robot</h2>
+
+        <div class="video-wide">
+          <figure class="video-card">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/AD4ux8qNeEg?rel=0"
+                title="Jumping-Gliding Robot Video 1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption class="video-caption">
+              <div class="video-desc">
+                Ladybird beetle inspired compliant origami
+              </div>
+              <div class="video-cite">
+                Baek, S. M., Yim, S., <strong>Chae, S. H.</strong>, Lee, D. Y., &amp; Cho, K. J., “Ladybird beetle–inspired compliant origami”, in Science Robotics (I.F. 26.1), 2020, 5.41: eaaz6262
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- =========================
+           Crawling Robot
+           ========================= -->
+      <section class="section" id="crawling">
+        <h2 class="section-title">Crawling Robot</h2>
+
+        <div class="video-grid video-grid-2">
+          <!-- Video 1 -->
+          <figure class="video-card">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/lzEUn2CAuFs?rel=0"
+                title="Crawling Robot Video 1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption class="video-caption">
+              <div class="video-desc">
+                CaseCrawler: A Lightweight and Low-Profile Crawling Phone Case Robot
+              </div>
+              <div class="video-cite">
+                J. Lee, G. P. Jung, S. M. Baek, <strong>S. H. Chae</strong>, S. Yim, W. Kim, and K. J. Cho, “CaseCrawler: A Lightweight and Low-Profile Crawling Phone Case Robot”, in IEEE Robotics and Automation Letters (I.F. 4.6), 2020, 5.4: 5858-5865.
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- Video 2 (citation 없음) -->
+          <figure class="video-card">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/ti6B6oxP8wc?rel=0"
+                title="Crawling Robot Video 2"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption class="video-caption">
+              <div class="video-desc">
+                Effect of Leg Stiffness on the Running Performance of Milli-Scale Six-Leg Crawling Robot with Payload
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- =========================
+           Others
+           ========================= -->
+      <section class="section" id="others">
+        <h2 class="section-title">Others</h2>
+
+        <div class="video-grid video-grid-3">
+          <!-- Video 1 -->
+          <figure class="video-card">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/iZhSZH24jvw?rel=0"
+                title="Others Video 1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption class="video-caption">
+              <div class="video-desc">
+                Loco-sheet: Morphing inchworm robot across rough-terrain
+              </div>
+              <div class="video-cite">
+                Chang, M. H., <strong>Chae, S. H.</strong>, Yoo, H. J., Kim, S. H., Kim, W., &amp; Cho, K. J, "Loco-sheet: Morphing inchworm robot across rough-terrain", IEEE International Conference on Soft Robotics (RoboSoft), 2019.
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- Video 2 (shorts) -->
+          <figure class="video-card">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/bbUo2Wsx9mc?rel=0"
+                title="Others Video 2"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption class="video-caption">
+              <div class="video-desc">
+                Microspine climbing robot
+              </div>
+            </figcaption>
+          </figure>
+
+          <!-- Video 3 (왼쪽 아래) -->
+          <figure class="video-card video-card-left-bottom">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/aS7P_F9VTqo?rel=0"
+                title="Others Video 3"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <figcaption class="video-caption">
+              <div class="video-desc">
+                Adaptive electro-adhesion gripper
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
 
