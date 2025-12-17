@@ -281,7 +281,7 @@ a:hover{text-decoration:underline;}
   font-size:1.25rem;
 }
 #about a{
-  font-weight:800;
+  font-weight:700;
   color:var(--unified-blue);
 }
 
@@ -386,7 +386,7 @@ a:hover{text-decoration:underline;}
 }
 
 .cv-role{
-  font-weight:600; /* ✅ 적당한 볼드 */
+  font-weight:700; /* ✅ 적당한 볼드 */
   color:var(--unified-blue);
   margin-bottom:4px;
 }
