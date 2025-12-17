@@ -749,3 +749,111 @@ a:hover{text-decoration:underline;}
     font-size: 1rem; /* ✅ 모바일 본문과 동일 */
   }
 }
+
+   /* =========================================================
+   FORCE Research page styles (override)
+   반드시 style.css 맨 아래에 붙이세요.
+   ========================================================= */
+
+.research-page .section-title{
+  color: var(--unified-blue) !important;
+  font-weight: 650 !important;
+}
+
+/* Research Scope에서 강조(이미 HTML에 <strong> 넣었으면 OK) */
+.research-page #research-scope strong{
+  font-weight: 700 !important;
+}
+
+/* ---- Video layout: 2개 위 + 1개 왼쪽 아래 ---- */
+.research-page .video-grid-2plus1{
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important; /* ✅ 1,2가 같은 줄 */
+  gap: 22px !important;
+  margin-top: 18px !important;
+  align-items: start !important;
+}
+
+.research-page .video-left-bottom{
+  grid-column: 1 !important; /* ✅ 왼쪽 아래 */
+}
+
+.research-page .video-grid-2col{
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 22px !important;
+  margin-top: 18px !important;
+  align-items: start !important;
+}
+
+/* 1개 영상 2/3 폭 */
+.research-page .video-wide-2over3{
+  width: 66.666% !important;
+  margin-top: 18px !important;
+}
+
+/* iframe wrapper */
+.research-page .video-frame{
+  position: relative !important;
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  background: #000 !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.research-page .video-frame iframe{
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+}
+
+/* ✅ 캡션이 영상 폭 넘지 않게 */
+.research-page figure.video-card{
+  margin: 0 !important;
+  min-width: 0 !important;
+}
+
+.research-page .video-caption{
+  margin-top: 10px !important;
+  font-size: 0.9rem !important;          /* ✅ Research scope 본문과 동일 */
+  line-height: 1.55 !important;
+  max-width: 100% !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+}
+
+.research-page .video-desc{
+  font-weight: 650 !important;
+  font-size: 1em !important;             /* ✅ 캡션(=본문)과 동일 */
+  color: #111 !important;
+  margin-bottom: 6px !important;
+}
+
+.research-page .video-cite{
+  font-size: calc(1em * 0.67) !important; /* ✅ 본문 대비 2/3 */
+  color: #444 !important;
+}
+
+/* 모바일에서는 1열 */
+@media (max-width: 900px){
+  .research-page .video-grid-2plus1,
+  .research-page .video-grid-2col{
+    grid-template-columns: 1fr !important;
+  }
+
+  .research-page .video-left-bottom{
+    grid-column: auto !important;
+  }
+
+  .research-page .video-wide-2over3{
+    width: 100% !important;
+  }
+
+  .research-page .video-caption{
+    font-size: 1rem !important; /* ✅ 모바일 본문과 동일 */
+  }
+}
+
