@@ -10,16 +10,26 @@
   /* Hello 섹션/Research Highlights 공통 색 */
   --unified-blue: #3b6683;
 
-  /* ✅ 컨테이너 폭(브라우저/디바이스별로 최대한 화면을 채우되, 너무 넓어지는 것만 제한) */
-  --container-max: 2000px;                 /* 필요하면 1800px까지 올려도 됨 */
+  /* 컨테이너 폭 */
+  --container-max: 1600px;
   --container-side-pad: clamp(16px, 2vw, 40px);
   --container-width: min(var(--container-max), 96vw);
+
+  /* 모달 */
+  --modal-radius: 12px;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/* ✅ 글씨 크기 가변 (브라우저/디바이스에 따라 자연스럽게) */
+html {
+  font-size: clamp(15px, 0.35vw + 14px, 18px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 html, body {
@@ -31,7 +41,11 @@ body {
     "Helvetica Neue", Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
-  overflow-x: hidden; /* ✅ 가끔 발생하는 가로 스크롤 방지 */
+  overflow-x: hidden;
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 a {
@@ -60,7 +74,6 @@ a:hover {
 }
 
 .top-nav-inner {
-  /* ✅ 고정 1200px 제거 → 화면을 더 채우도록 */
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 12px var(--container-side-pad);
@@ -112,20 +125,9 @@ a:hover {
   border-radius: 2px;
 }
 
+/* ✅ 모바일 메뉴: 기본은 숨김, 열리면 "팝업"으로 보이게 */
 .mobile-dropdown {
-  display: none; /* JS toggles */
-  background: var(--navbar-bg);
-  border-top: 1px solid #ddd;
-  padding: 10px var(--container-side-pad);
-  flex-direction: column;
-  gap: 15px;
-}
-.mobile-dropdown a {
-  font-size: 0.95rem;
-  color: #333;
-  padding: 5px 0;
-  display: block;
-  font-weight: 500;
+  display: none;
 }
 
 /* =========================
@@ -137,7 +139,6 @@ a:hover {
 }
 
 .background-inner {
-  /* ✅ 고정 1200px 제거 → 화면을 더 채우도록 */
   max-width: var(--container-width);
   margin: 8px auto 0;
   padding: 0 var(--container-side-pad);
@@ -154,7 +155,6 @@ a:hover {
    Layout
    ========================= */
 .page-wrapper {
-  /* ✅ 고정 1200px 제거 → 화면을 더 채우도록 */
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 35px var(--container-side-pad) 60px;
@@ -283,10 +283,12 @@ a:hover {
   font-weight: 700;
   color: var(--unified-blue);
 }
+
+/* ✅ Hello 문단: 양쪽 맞춤 제거 → 왼쪽 정렬 */
 #about p {
   line-height: 1.5;
   margin-bottom: 1.5em;
-  text-align: justify;
+  text-align: left;
 }
 
 #research {
@@ -417,10 +419,8 @@ a:hover {
 }
 
 /* =========================
-   About page overrides (UPDATED)
+   About page overrides
    ========================= */
-
-/* Research Interests: 서브항목이 한 번만 들어가도록 */
 .about-page .interest-list{
   padding-left: 1.8rem;
   font-size: 0.85rem;
@@ -433,13 +433,12 @@ a:hover {
 .about-page .interest-list > li > ul{
   list-style: circle;
   margin: 2px 0 0 1.0rem;
-  padding-left: 0;           /* 이중 들여쓰기 제거 핵심 */
+  padding-left: 0;
 }
 .about-page .interest-list > li > ul > li{
   margin: 1px 0;
 }
 
-/* Experience~Teaching Experiences 내용 글자 -2pt 정도 */
 .about-page .cv-table td,
 .about-page .cv-bullets,
 .about-page .cv-muted,
@@ -448,19 +447,92 @@ a:hover {
   line-height: 1.42;
 }
 
-/* Period 칸 최대한 줄이되 자동 줄바꿈 방지 */
 .about-page .cv-period{
   width: 120px;
   white-space: nowrap;
 }
 
-/* 파란 볼드 굵기 완화 */
 .about-page .cv-role{
   font-weight: 600;
   color: var(--unified-blue);
 }
-.about-page .highlight-bold-blue{
-  font-weight: 600;
+
+/* =========================
+   ✅ Popup / Modal (공통)
+   ========================= */
+.ui-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.32);
+  z-index: 900;
+  display: none;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+.ui-backdrop.show {
+  opacity: 1;
+}
+
+.ui-modal {
+  position: fixed;
+  left: 50%;
+  top: 14vh;
+  transform: translateX(-50%);
+  width: min(520px, calc(100vw - 24px));
+  background: #fff;
+  border-radius: var(--modal-radius);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  z-index: 950;
+  display: none;
+  overflow: hidden;
+}
+
+.ui-modal.open {
+  display: block;
+}
+
+.ui-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.ui-modal-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #111;
+}
+
+.ui-close-btn {
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.ui-close-btn:hover {
+  background: #f7f7f7;
+}
+
+.ui-modal-body {
+  padding: 14px;
+}
+
+/* 모달 안 리스트(Related Links) */
+.modal-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.modal-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
 }
 
 /* =========================
@@ -469,12 +541,17 @@ a:hover {
 @media (max-width: 900px) {
   .page-wrapper {
     grid-template-columns: 1fr;
-    padding-top: 5px;     /* background-프로필 간격 축소 */
-    gap: 30px;
+    /* ✅ 모바일에서 background-프로필 간격 줄이기 (핵심: top 88px 해제) */
+    padding: 12px var(--container-side-pad) 40px;
+    gap: 20px;
+  }
+
+  .background-inner {
+    margin: 0 auto 0;
   }
 
   .background-img {
-    height: 100px;        /* 모바일에서 상단 이미지 높이 축소 */
+    height: 110px;
     object-fit: cover;
   }
 
@@ -486,13 +563,40 @@ a:hover {
     display: flex;
   }
 
+  /* ✅ 모바일 메뉴를 "팝업"으로 */
+  .mobile-dropdown {
+    position: fixed;
+    top: 64px;
+    right: 12px;
+    left: 12px;
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: var(--modal-radius);
+    padding: 12px 14px 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.14);
+    z-index: 950;
+  }
+  .mobile-dropdown.open {
+    display: flex;
+  }
+  .mobile-dropdown a {
+    font-size: 1rem;
+    color: #111;
+    font-weight: 600;
+    padding: 6px 2px;
+  }
+
   /* Profile card */
   .profile-card {
     position: relative;
-    margin-bottom: 24px;
+    top: 0;            /* ✅ 이게 없으면 relative 상태에서도 88px 내려가서 간격이 커짐 */
     border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
+    padding-bottom: 18px;
     margin-top: 0;
+    margin-bottom: 6px;
   }
 
   .profile-photo {
@@ -509,20 +613,14 @@ a:hover {
     top: 0;
     right: 0;
     width: auto;
-    min-width: 100px;
+    min-width: 120px;
     margin: 0;
     padding: 6px 12px;
   }
 
+  /* 기존 "펼쳐지는" 방식은 모바일에서 계속 숨김 */
   .profile-info {
     display: none;
-    margin-top: 20px;
-  }
-  .profile-info.show {
-    display: flex;
-  }
-  .profile-info li {
-    font-size: 0.9rem;
   }
 
   /* Content */
@@ -532,17 +630,13 @@ a:hover {
 
   .section p {
     font-size: 1rem;
-    text-align: left;     /* 모바일에서만 왼쪽 정렬 */
+    text-align: left;
   }
 
   /* Research highlights */
   .highlight-item {
     grid-template-columns: 1fr;
     gap: 10px;
-  }
-  .highlight-thumb {
-    max-width: 100%;
-    height: auto;
   }
   .highlight-title {
     font-size: 1rem;
@@ -554,11 +648,9 @@ a:hover {
     font-size: 0.85rem;
   }
 
-  /* Tables */
-  .cv-table thead th {
-    font-size: 0.95rem;
-  }
-  .cv-period {
-    width: 120px;
+  /* 모달 위치(모바일에서 더 자연스럽게) */
+  .ui-modal {
+    top: 12vh;
+    width: min(560px, calc(100vw - 24px));
   }
 }
