@@ -305,7 +305,7 @@ a:hover{text-decoration:underline;}
   font-weight:600;
   font-size:.75rem;
   margin-bottom:4px;
-  color:#000;
+  color: var(--unified-blue);
   line-height:1.4;
 }
 
