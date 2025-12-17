@@ -649,4 +649,90 @@ a:hover{text-decoration:underline;}
     width:96px;
     white-space:nowrap;
   }
+
+   /* =========================================================
+   Research page video layouts
+   ========================================================= */
+
+.video-frame{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.video-frame iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-card{
+  margin: 0;
+}
+
+.video-caption{
+  margin-top: 10px;
+}
+
+.video-desc{
+  font-weight: 650;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.video-cite{
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: #444;
+}
+
+/* 2개: 한 줄에 꽉 차게 */
+.video-grid{
+  display: grid;
+  gap: 22px;
+  margin-top: 18px;
+}
+
+.video-grid-2{
+  grid-template-columns: 1fr 1fr;
+}
+
+/* 3개: 위에 2개, 아래 왼쪽 1개 */
+.video-grid-3{
+  grid-template-columns: 1fr 1fr;
+}
+
+.video-card-left-bottom{
+  grid-column: 1;
+}
+
+/* 1개: 가로 2/3 정도 */
+.video-wide{
+  width: 66.666%;
+  margin-top: 18px;
+}
+
+/* 모바일에서는 전부 1열로 */
+@media (max-width: 900px){
+  .video-grid-2,
+  .video-grid-3{
+    grid-template-columns: 1fr;
+  }
+
+  .video-card-left-bottom{
+    grid-column: auto;
+  }
+
+  .video-wide{
+    width: 100%;
+  }
+}
+
 }
