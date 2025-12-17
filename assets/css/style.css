@@ -1,5 +1,5 @@
 /* =========================================================
-   assets/css/style.css  (FULL FILE)
+   assets/css/style.css  (FULL FILE)  - FIXED
    ========================================================= */
 
 /* =========================
@@ -58,7 +58,7 @@ a:hover{text-decoration:underline;}
    Top Navigation (FIXED)
    ========================= */
 .top-nav{
-  position:fixed; /* ✅ 항상 상단 고정 */
+  position:fixed;
   top:0;left:0;right:0;
   z-index:100;
   background:var(--navbar-bg);
@@ -74,8 +74,8 @@ a:hover{text-decoration:underline;}
 .top-nav-inner{
   max-width:var(--container-width);
   margin:0 auto;
-  height:var(--nav-h);                 /* ✅ 높이로 관리 */
-  padding:0 var(--container-side-pad); /* ✅ 세로 패딩 제거 */
+  height:var(--nav-h);
+  padding:0 var(--container-side-pad);
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -168,7 +168,7 @@ a:hover{text-decoration:underline;}
 
 .profile-card{
   position:sticky;
-  top:calc(var(--nav-h) + 32px); /* ✅ fixed header 고려 */
+  top:calc(var(--nav-h) + 32px);
   background:transparent;
   padding:0;
   text-align:left;
@@ -241,7 +241,7 @@ a:hover{text-decoration:underline;}
   display:flex;
   align-items:center;
   gap:12px;
-  font-size:inherit; /* ✅ clamp 상속 */
+  font-size:inherit;
 }
 .sidebar-link:hover{
   color:var(--accent);
@@ -386,7 +386,7 @@ a:hover{text-decoration:underline;}
 }
 
 .cv-role{
-  font-weight:750; /* ✅ 적당한 볼드 */
+  font-weight:750;
   color:var(--unified-blue);
   margin-bottom:4px;
 }
@@ -423,10 +423,10 @@ a:hover{text-decoration:underline;}
    About page overrides
    ========================= */
 
-/* ✅ About 페이지 파란 제목 볼드(너무 굵지 않게) */
+/* ✅ About 페이지 파란 제목 볼드(조금 더 두껍게) */
 .about-page .section-title{
   color:var(--unified-blue);
-  font-weight:600;
+  font-weight:650;
 }
 
 /* ✅ Research Interests: 중첩 UL 들여쓰기 과다 방지 */
@@ -455,7 +455,7 @@ a:hover{text-decoration:underline;}
   display:none;
   opacity:0;
   transition:opacity 160ms ease;
-  touch-action:manipulation; /* iOS 안정 */
+  touch-action:manipulation;
 }
 .ui-backdrop.show{
   opacity:1;
@@ -553,7 +553,7 @@ a:hover{text-decoration:underline;}
     display:flex;
   }
 
-  /* ✅ 햄버거 메뉴: backdrop 없이 팝업(메뉴 자체 스타일) */
+  /* ✅ 햄버거 메뉴 */
   .mobile-dropdown{
     position:fixed;
     top:calc(var(--nav-h) + 8px);
@@ -649,211 +649,112 @@ a:hover{text-decoration:underline;}
     width:96px;
     white-space:nowrap;
   }
+}
 
 /* =========================================================
-   Research page: titles + video layout (FIXED)
+   Research page (DESKTOP + MOBILE)
    ========================================================= */
 
 /* 섹션 제목: about 페이지와 같은 파란 볼드 */
 .research-page .section-title{
-  color: var(--unified-blue);
-  font-weight: 650;
+  color:var(--unified-blue);
+  font-weight:650;
+}
+
+/* Research Scope에서 강조 */
+.research-page #research-scope strong{
+  font-weight:700;
 }
 
 /* 비디오 레이아웃 공통 */
+.research-page figure.video-card{
+  margin:0;
+  min-width:0; /* ✅ 캡션이 grid 폭 밖으로 밀지 않게 */
+}
+
 .research-page .video-frame{
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #000;
-  border-radius: 8px;
-  overflow: hidden;
+  position:relative;
+  width:100%;
+  aspect-ratio:16 / 9;
+  background:#000;
+  border-radius:8px;
+  overflow:hidden;
 }
 
 .research-page .video-frame iframe{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
 }
 
-.research-page .video-card{
-  margin: 0;
-  min-width: 0; /* ✅ 캡션/텍스트가 grid 밖으로 밀어내지 않게 */
-}
-
+/* ✅ 설명/인용: 본문과 크기/폭 규칙 */
 .research-page .video-caption{
-  margin-top: 10px;
-  font-size: 0.9rem; /* ✅ 본문(.section p)과 동일 */
-  line-height: 1.55;
-  max-width: 100%;
-  overflow-wrap: anywhere; /* ✅ 길면 강제 줄바꿈 */
-  word-break: break-word;
+  margin-top:10px;
+  font-size:.9rem;       /* ✅ section p(데스크탑)과 동일 */
+  line-height:1.7;       /* ✅ section p와 동일 */
+  max-width:100%;
+  overflow-wrap:anywhere;
+  word-break:break-word;
 }
 
 .research-page .video-desc{
-  font-weight: 650;
-  font-size: 1em; /* ✅ 캡션 base(=본문)와 동일 */
-  color: #111;
-  margin-bottom: 6px;
+  font-weight:650;
+  font-size:1em;
+  color:#111;
+  margin-bottom:6px;
 }
 
 .research-page .video-cite{
-  font-size: 0.66em; /* ✅ 설명의 2/3 */
-  color: #444;
+  font-size:.67em;       /* ✅ 설명의 2/3 */
+  color:#444;
 }
 
 /* 2개 한 줄(가로 꽉 차게) */
 .research-page .video-grid-2col{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  margin-top: 18px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  margin-top:18px;
+  align-items:start;
 }
 
 /* 3개: 위에 2개, 아래 왼쪽 1개 */
 .research-page .video-grid-2plus1{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  margin-top: 18px;
+  display:grid;
+  grid-template-columns:1fr 1fr; /* ✅ 1,2가 같은 줄 */
+  gap:22px;
+  margin-top:18px;
+  align-items:start;
 }
 
 .research-page .video-left-bottom{
-  grid-column: 1; /* ✅ 왼쪽 아래 */
+  grid-column:1; /* ✅ 왼쪽 아래 */
 }
 
 /* 1개: 가로 2/3 정도 */
 .research-page .video-wide-2over3{
-  width: 66.666%;
-  margin-top: 18px;
+  width:66.666%;
+  margin-top:18px;
 }
 
 /* 모바일에서는 1열 + 본문처럼 1rem */
-@media (max-width: 900px){
+@media (max-width:900px){
   .research-page .video-grid-2col,
   .research-page .video-grid-2plus1{
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
   }
 
   .research-page .video-left-bottom{
-    grid-column: auto;
+    grid-column:auto;
   }
 
   .research-page .video-wide-2over3{
-    width: 100%;
+    width:100%;
   }
 
   .research-page .video-caption{
-    font-size: 1rem; /* ✅ 모바일 본문과 동일 */
+    font-size:1rem; /* ✅ 모바일 section p와 동일 */
   }
 }
-
-   /* =========================================================
-   FORCE Research page styles (override)
-   반드시 style.css 맨 아래에 붙이세요.
-   ========================================================= */
-
-.research-page .section-title{
-  color: var(--unified-blue) !important;
-  font-weight: 650 !important;
-}
-
-/* Research Scope에서 강조(이미 HTML에 <strong> 넣었으면 OK) */
-.research-page #research-scope strong{
-  font-weight: 700 !important;
-}
-
-/* ---- Video layout: 2개 위 + 1개 왼쪽 아래 ---- */
-.research-page .video-grid-2plus1{
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important; /* ✅ 1,2가 같은 줄 */
-  gap: 22px !important;
-  margin-top: 18px !important;
-  align-items: start !important;
-}
-
-.research-page .video-left-bottom{
-  grid-column: 1 !important; /* ✅ 왼쪽 아래 */
-}
-
-.research-page .video-grid-2col{
-  display: grid !important;
-  grid-template-columns: 1fr 1fr !important;
-  gap: 22px !important;
-  margin-top: 18px !important;
-  align-items: start !important;
-}
-
-/* 1개 영상 2/3 폭 */
-.research-page .video-wide-2over3{
-  width: 66.666% !important;
-  margin-top: 18px !important;
-}
-
-/* iframe wrapper */
-.research-page .video-frame{
-  position: relative !important;
-  width: 100% !important;
-  aspect-ratio: 16 / 9 !important;
-  background: #000 !important;
-  border-radius: 8px !important;
-  overflow: hidden !important;
-}
-
-.research-page .video-frame iframe{
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  border: 0 !important;
-}
-
-/* ✅ 캡션이 영상 폭 넘지 않게 */
-.research-page figure.video-card{
-  margin: 0 !important;
-  min-width: 0 !important;
-}
-
-.research-page .video-caption{
-  margin-top: 10px !important;
-  font-size: 0.9rem !important;          /* ✅ Research scope 본문과 동일 */
-  line-height: 1.55 !important;
-  max-width: 100% !important;
-  overflow-wrap: anywhere !important;
-  word-break: break-word !important;
-}
-
-.research-page .video-desc{
-  font-weight: 650 !important;
-  font-size: 1em !important;             /* ✅ 캡션(=본문)과 동일 */
-  color: #111 !important;
-  margin-bottom: 6px !important;
-}
-
-.research-page .video-cite{
-  font-size: calc(1em * 0.67) !important; /* ✅ 본문 대비 2/3 */
-  color: #444 !important;
-}
-
-/* 모바일에서는 1열 */
-@media (max-width: 900px){
-  .research-page .video-grid-2plus1,
-  .research-page .video-grid-2col{
-    grid-template-columns: 1fr !important;
-  }
-
-  .research-page .video-left-bottom{
-    grid-column: auto !important;
-  }
-
-  .research-page .video-wide-2over3{
-    width: 100% !important;
-  }
-
-  .research-page .video-caption{
-    font-size: 1rem !important; /* ✅ 모바일 본문과 동일 */
-  }
-}
-
