@@ -10,7 +10,7 @@ window.addEventListener('scroll', function () {
 });
 
 // ==============================
-// Overlay Manager (backdrop + close 관리)
+// Related Links 전용: backdrop + (선택) 스크롤 잠금 모달
 // ==============================
 let activeClose = null;
 
@@ -30,8 +30,8 @@ function lockBodyScroll(lock) {
   else document.body.classList.remove('modal-open');
 }
 
-function openOverlay({ onOpen, onClose, lockScroll = false }) {
-  // 다른 오버레이 열려 있으면 먼저 닫기
+function openModalOverlay({ onOpen, onClose, lockScroll = true }) {
+  // 다른 모달 열려 있으면 닫기
   if (typeof activeClose === 'function') activeClose();
 
   const bd = ensureBackdrop();
@@ -60,8 +60,6 @@ function openOverlay({ onOpen, onClose, lockScroll = false }) {
 
   bd.style.display = 'block';
   requestAnimationFrame(() => bd.classList.add('show'));
-
-  // ✅ 햄버거 메뉴는 lockScroll=false로 사용 (멈춤 느낌 제거)
   lockBodyScroll(!!lockScroll);
 
   bd.addEventListener('click', onBackdropClick);
@@ -72,7 +70,8 @@ function openOverlay({ onOpen, onClose, lockScroll = false }) {
 }
 
 // ==============================
-// 2) 모바일 메뉴: "팝업" (스크롤 잠금 없음)
+// 2) 모바일 메뉴(햄버거): backdrop 없이 팝업 (✅ 멈춤 버그 제거)
+//    - 바깥 클릭/터치 또는 ESC로 닫힘
 // ==============================
 const hamburgerBtn = document.querySelector('.hamburger-btn');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -90,41 +89,58 @@ if (hamburgerBtn && mobileMenu) {
     mobileMenu.prepend(menuCloseBtn);
   }
 
-  const setMenuOpen = (open, closeCb) => {
-    if (open) {
-      mobileMenu.classList.add('open');
-      hamburgerBtn.setAttribute('aria-expanded', 'true');
+  let menuOpen = false;
 
-      // 링크 누르면 닫기
-      mobileMenu.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => closeCb && closeCb(), { once: true });
-      });
+  const closeMenu = () => {
+    if (!menuOpen) return;
 
-      menuCloseBtn.onclick = () => closeCb && closeCb();
-    } else {
-      mobileMenu.classList.remove('open');
-      hamburgerBtn.setAttribute('aria-expanded', 'false');
-    }
+    mobileMenu.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+    menuOpen = false;
+
+    document.removeEventListener('click', onDocPointer, true);
+    document.removeEventListener('touchstart', onDocPointer, true);
+    document.removeEventListener('keydown', onKeyDown);
+  };
+
+  const openMenu = () => {
+    // 혹시 다른 모달이 열려 있으면 닫기(상태 꼬임 방지)
+    if (typeof activeClose === 'function') activeClose();
+
+    mobileMenu.classList.add('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'true');
+    menuOpen = true;
+
+    // 메뉴 안 링크 클릭하면 닫기
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', closeMenu, { once: true });
+    });
+
+    menuCloseBtn.onclick = closeMenu;
+
+    document.addEventListener('click', onDocPointer, true);
+    document.addEventListener('touchstart', onDocPointer, true);
+    document.addEventListener('keydown', onKeyDown);
+  };
+
+  const onDocPointer = (e) => {
+    // 메뉴/버튼 바깥을 누르면 닫기
+    if (mobileMenu.contains(e.target) || hamburgerBtn.contains(e.target)) return;
+    closeMenu();
+  };
+
+  const onKeyDown = (e) => {
+    if (e.key === 'Escape') closeMenu();
   };
 
   hamburgerBtn.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.contains('open');
-    if (isOpen) {
-      if (typeof activeClose === 'function') activeClose();
-      else setMenuOpen(false);
-      return;
-    }
-
-    openOverlay({
-      lockScroll: false, // ✅ 여기 핵심
-      onOpen: (open, closeCb) => setMenuOpen(open, closeCb),
-      onClose: () => setMenuOpen(false)
-    });
+    if (menuOpen) closeMenu();
+    else openMenu();
   });
 }
 
 // ==============================
-// 3) 모바일 Related Link: "팝업" (스크롤 잠금 O)
+// 3) 모바일 Related Link: 모달(backdrop+스크롤잠금)
 // ==============================
 const relatedLinksBtn = document.getElementById('relatedLinksBtn');
 const profileInfoList = document.getElementById('profileInfoList');
@@ -180,8 +196,8 @@ if (relatedLinksBtn && profileInfoList) {
       return;
     }
 
-    openOverlay({
-      lockScroll: true, // ✅ 모달은 배경 스크롤 막는 게 자연스러움
+    openModalOverlay({
+      lockScroll: true,
       onOpen: (open, closeCb) => setOpen(open, closeCb),
       onClose: () => setOpen(false)
     });
