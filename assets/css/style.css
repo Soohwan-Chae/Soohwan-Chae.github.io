@@ -277,6 +277,12 @@ a:hover{text-decoration:underline;}
 #research{ margin-top:60px; }
 #research p{ text-align:justify; }
 
+/* ✅ Home: Research Highlights 제목을 파란색으로 */
+#research .section-title{
+  color:var(--unified-blue);
+  font-weight:650;
+}
+
 /* =========================
    Research Highlights (Home)
    ========================= */
@@ -305,7 +311,7 @@ a:hover{text-decoration:underline;}
   font-weight:600;
   font-size:.75rem;
   margin-bottom:4px;
-  color:#000
+  color:#000;          /* ✅ 세미콜론 추가 (링크 파란색 상속 방지) */
   line-height:1.4;
 }
 
@@ -667,13 +673,10 @@ a:hover{text-decoration:underline;}
 .research-page .video-left-bottom{ grid-column:1; }
 .research-page .video-grid-2col.video-single .video-card{ grid-column:1; }
 
-/* More 페이지 제목: Research와 같은 색/볼드 + 중앙 정렬 */
+/* More 페이지 제목 */
 .more-page .section-title{
   color:var(--unified-blue);
   font-weight:650;
-}
-.section-title-center{
-  text-align:center;
 }
 
 /* 모바일에서는 1열 */
@@ -709,8 +712,8 @@ a:hover{text-decoration:underline;}
 /* [pdf] 링크 스타일(볼드 제거 + 글씨 2/3) */
 .publications-page .pdf-link{
   margin-left: 8px;
-  font-weight: 400;      /* ✅ 볼드 제거 */
-  font-size: 0.67em;     /* ✅ 본문 대비 2/3 */
+  font-weight: 400;
+  font-size: 0.67em;
   color: var(--unified-blue);
   text-decoration: none;
 }
@@ -718,30 +721,23 @@ a:hover{text-decoration:underline;}
   text-decoration: underline;
 }
 
-.publications-page .pdf-link:hover{ text-decoration: underline; }
-
 @media (max-width: 900px){
   .publications-page .cv-period{
     width: 84px;
   }
 }
+
 /* =========================================================
    More page adjustments
    ========================================================= */
-
-/* ✅ 영상 전체 폭을 3/4로 */
 .more-page .more-video-wrap{
   width: 75%;
 }
-
-/* 모바일에서는 다시 100% */
 @media (max-width: 900px){
   .more-page .more-video-wrap{
     width: 100%;
   }
 }
-
-/* ✅ 이름 파란색만 */
 .more-page .name-blue{
   color: var(--unified-blue);
   font-weight: inherit;
