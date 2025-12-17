@@ -754,6 +754,14 @@ a:hover{text-decoration:underline;}
     width:100%;
   }
 
+   .research-page .video-single{
+  grid-template-columns: 1fr 1fr;
+}
+.research-page .video-single .video-card{
+  grid-column: 1; /* ✅ 왼쪽 칼럼(= 다른 섹션의 한 영상 카드와 동일 폭) */
+}
+
+
   .research-page .video-caption{
     font-size:1rem; /* ✅ 모바일 section p와 동일 */
   }
