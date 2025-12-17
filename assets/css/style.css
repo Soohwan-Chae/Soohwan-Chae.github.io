@@ -9,6 +9,11 @@
 
   /* Hello 섹션/Research Highlights 공통 색 */
   --unified-blue: #3b6683;
+
+  /* ✅ 컨테이너 폭(브라우저/디바이스별로 최대한 화면을 채우되, 너무 넓어지는 것만 제한) */
+  --container-max: 1600px;                 /* 필요하면 1800px까지 올려도 됨 */
+  --container-side-pad: clamp(16px, 2vw, 40px);
+  --container-width: min(var(--container-max), 96vw);
 }
 
 * {
@@ -26,6 +31,7 @@ body {
     "Helvetica Neue", Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
+  overflow-x: hidden; /* ✅ 가끔 발생하는 가로 스크롤 방지 */
 }
 
 a {
@@ -54,9 +60,10 @@ a:hover {
 }
 
 .top-nav-inner {
-  max-width: 1200px;
+  /* ✅ 고정 1200px 제거 → 화면을 더 채우도록 */
+  max-width: var(--container-width);
   margin: 0 auto;
-  padding: 12px 20px;
+  padding: 12px var(--container-side-pad);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -109,7 +116,7 @@ a:hover {
   display: none; /* JS toggles */
   background: var(--navbar-bg);
   border-top: 1px solid #ddd;
-  padding: 10px 20px;
+  padding: 10px var(--container-side-pad);
   flex-direction: column;
   gap: 15px;
 }
@@ -130,9 +137,10 @@ a:hover {
 }
 
 .background-inner {
-  max-width: 1200px;
+  /* ✅ 고정 1200px 제거 → 화면을 더 채우도록 */
+  max-width: var(--container-width);
   margin: 8px auto 0;
-  padding: 0 20px;
+  padding: 0 var(--container-side-pad);
 }
 
 .background-img {
@@ -146,9 +154,10 @@ a:hover {
    Layout
    ========================= */
 .page-wrapper {
-  max-width: 1200px;
+  /* ✅ 고정 1200px 제거 → 화면을 더 채우도록 */
+  max-width: var(--container-width);
   margin: 0 auto;
-  padding: 35px 20px 60px;
+  padding: 35px var(--container-side-pad) 60px;
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 2px;
