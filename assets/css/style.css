@@ -650,20 +650,27 @@ a:hover{text-decoration:underline;}
     white-space:nowrap;
   }
 
-   /* =========================================================
-   Research page video layouts
+/* =========================================================
+   Research page: titles + video layout (FIXED)
    ========================================================= */
 
-.video-frame{
+/* 섹션 제목: about 페이지와 같은 파란 볼드 */
+.research-page .section-title{
+  color: var(--unified-blue);
+  font-weight: 650;
+}
+
+/* 비디오 레이아웃 공통 */
+.research-page .video-frame{
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #000;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
-.video-frame iframe{
+.research-page .video-frame iframe{
   position: absolute;
   inset: 0;
   width: 100%;
@@ -671,68 +678,74 @@ a:hover{text-decoration:underline;}
   border: 0;
 }
 
-.video-card{
+.research-page .video-card{
   margin: 0;
+  min-width: 0; /* ✅ 캡션/텍스트가 grid 밖으로 밀어내지 않게 */
 }
 
-.video-caption{
+.research-page .video-caption{
   margin-top: 10px;
+  font-size: 0.9rem; /* ✅ 본문(.section p)과 동일 */
+  line-height: 1.55;
+  max-width: 100%;
+  overflow-wrap: anywhere; /* ✅ 길면 강제 줄바꿈 */
+  word-break: break-word;
 }
 
-.video-desc{
+.research-page .video-desc{
   font-weight: 650;
-  font-size: 0.92rem;
-  line-height: 1.35;
+  font-size: 1em; /* ✅ 캡션 base(=본문)와 동일 */
   color: #111;
   margin-bottom: 6px;
 }
 
-.video-cite{
-  font-size: 0.82rem;
-  line-height: 1.4;
+.research-page .video-cite{
+  font-size: 0.66em; /* ✅ 설명의 2/3 */
   color: #444;
 }
 
-/* 2개: 한 줄에 꽉 차게 */
-.video-grid{
+/* 2개 한 줄(가로 꽉 차게) */
+.research-page .video-grid-2col{
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 22px;
   margin-top: 18px;
 }
 
-.video-grid-2{
-  grid-template-columns: 1fr 1fr;
-}
-
 /* 3개: 위에 2개, 아래 왼쪽 1개 */
-.video-grid-3{
+.research-page .video-grid-2plus1{
+  display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 18px;
 }
 
-.video-card-left-bottom{
-  grid-column: 1;
+.research-page .video-left-bottom{
+  grid-column: 1; /* ✅ 왼쪽 아래 */
 }
 
 /* 1개: 가로 2/3 정도 */
-.video-wide{
+.research-page .video-wide-2over3{
   width: 66.666%;
   margin-top: 18px;
 }
 
-/* 모바일에서는 전부 1열로 */
+/* 모바일에서는 1열 + 본문처럼 1rem */
 @media (max-width: 900px){
-  .video-grid-2,
-  .video-grid-3{
+  .research-page .video-grid-2col,
+  .research-page .video-grid-2plus1{
     grid-template-columns: 1fr;
   }
 
-  .video-card-left-bottom{
+  .research-page .video-left-bottom{
     grid-column: auto;
   }
 
-  .video-wide{
+  .research-page .video-wide-2over3{
     width: 100%;
   }
-}
 
+  .research-page .video-caption{
+    font-size: 1rem; /* ✅ 모바일 본문과 동일 */
+  }
 }
