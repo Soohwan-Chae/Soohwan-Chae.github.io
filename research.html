@@ -41,7 +41,6 @@
   <div class="page-wrapper">
     <aside class="sidebar">
       <div class="profile-card">
-        <!-- ✅ about/index와 동일 경로(대소문자 포함) -->
         <img src="assets/img/Profile.jpg" alt="Profile photo" class="profile-photo" />
         <div class="profile-name">Soo-Hwan Chae</div>
 
@@ -52,7 +51,6 @@
 
         <button class="related-links-btn" id="relatedLinksBtn" type="button">Related Link</button>
 
-        <!-- ✅ about/index와 동일 구조/아이콘 경로 -->
         <ul class="profile-info" id="profileInfoList">
           <li>
             <img src="assets/img/map_pin_icon.jpg" alt="Location" class="inline-icon" />
@@ -180,28 +178,20 @@
         </div>
       </section>
 
-      <!-- 3) Jumping-Gliding Robot -->
+      <!-- 3) Jumping-Gliding Robot (✅ 크기 통일) -->
       <section class="section" id="jumping-gliding">
         <h2 class="section-title">Jumping-Gliding Robot</h2>
 
-<div class="video-grid-2col video-single">
-  <figure class="video-card">
-    <div class="video-frame">
-      <iframe
-        src="https://www.youtube.com/embed/AD4ux8qNeEg?rel=0"
-        title="Ladybird beetle inspired compliant origami"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
-    </div>
-    <figcaption class="video-caption">
-      <div class="video-desc">Ladybird beetle inspired compliant origami</div>
-      <div class="video-cite">
-        Baek, S. M., Yim, S., <strong>Chae, S. H.</strong>, Lee, D. Y., &amp; Cho, K. J., “Ladybird beetle–inspired compliant origami”, in Science Robotics (I.F. 26.1), 2020, 5.41: eaaz6262
-      </div>
-    </figcaption>
-  </figure>
-</div>
-
+        <!-- ✅ 다른 섹션 “한 카드 폭”과 동일하게 맞춤 -->
+        <div class="video-grid-2col video-single">
+          <figure class="video-card">
+            <div class="video-frame">
+              <iframe
+                src="https://www.youtube.com/embed/AD4ux8qNeEg?rel=0"
+                title="Ladybird beetle inspired compliant origami"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
             <figcaption class="video-caption">
               <div class="video-desc">Ladybird beetle inspired compliant origami</div>
               <div class="video-cite">
@@ -272,7 +262,7 @@
             </figcaption>
           </figure>
 
-          <!-- 2 (shorts도 embed로 처리) -->
+          <!-- 2 -->
           <figure class="video-card">
             <div class="video-frame">
               <iframe
