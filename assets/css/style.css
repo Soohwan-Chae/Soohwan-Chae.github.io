@@ -1,5 +1,5 @@
 /* =========================================================
-   assets/css/style.css  (FULL FILE)  - FIXED
+   assets/css/style.css  (FULL FILE)
    ========================================================= */
 
 /* =========================
@@ -594,13 +594,17 @@ a:hover{text-decoration:underline;}
 
 .research-page #research-scope strong{ font-weight:700; }
 
-/* 비디오 레이아웃 공통 */
-.research-page figure.video-card{
+/* =========================================================
+   Shared Video Components (Research + More)
+   ========================================================= */
+.research-page figure.video-card,
+.more-page figure.video-card{
   margin:0;
   min-width:0;
 }
 
-.research-page .video-frame{
+.research-page .video-frame,
+.more-page .video-frame{
   position:relative;
   width:100%;
   aspect-ratio:16 / 9;
@@ -609,7 +613,8 @@ a:hover{text-decoration:underline;}
   overflow:hidden;
 }
 
-.research-page .video-frame iframe{
+.research-page .video-frame iframe,
+.more-page .video-frame iframe{
   position:absolute;
   inset:0;
   width:100%;
@@ -617,8 +622,8 @@ a:hover{text-decoration:underline;}
   border:0;
 }
 
-/* ✅ 설명/인용: 본문과 크기/폭 규칙 */
-.research-page .video-caption{
+.research-page .video-caption,
+.more-page .video-caption{
   margin-top:10px;
   font-size:.9rem;
   line-height:1.7;
@@ -627,20 +632,23 @@ a:hover{text-decoration:underline;}
   word-break:break-word;
 }
 
-.research-page .video-desc{
+.research-page .video-desc,
+.more-page .video-desc{
   font-weight:650;
   font-size:1em;
   color:#111;
-  margin-bottom:6px;
+  margin-bottom:0;
 }
 
-.research-page .video-cite{
+.research-page .video-cite,
+.more-page .video-cite{
   font-size:.67em;
   color:#444;
 }
 
 /* 2개 한 줄 */
-.research-page .video-grid-2col{
+.research-page .video-grid-2col,
+.more-page .video-grid-2col{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:22px;
@@ -648,7 +656,7 @@ a:hover{text-decoration:underline;}
   align-items:start;
 }
 
-/* 3개: 위에 2개 + 아래 왼쪽 1개 */
+/* Research 전용(2+1 레이아웃) */
 .research-page .video-grid-2plus1{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -656,38 +664,37 @@ a:hover{text-decoration:underline;}
   margin-top:18px;
   align-items:start;
 }
+.research-page .video-left-bottom{ grid-column:1; }
+.research-page .video-grid-2col.video-single .video-card{ grid-column:1; }
 
-.research-page .video-left-bottom{
-  grid-column:1;
+/* More 페이지 제목: Research와 같은 색/볼드 + 중앙 정렬 */
+.more-page .section-title{
+  color:var(--unified-blue);
+  font-weight:650;
 }
-
-/* ✅ 단일 영상도 다른 영상 “카드 폭”과 동일하게(=2열 그리드의 1칸) */
-.research-page .video-grid-2col.video-single .video-card{
-  grid-column:1;
+.section-title-center{
+  text-align:center;
 }
 
 /* 모바일에서는 1열 */
 @media (max-width:900px){
   .research-page .video-grid-2col,
-  .research-page .video-grid-2plus1{
+  .research-page .video-grid-2plus1,
+  .more-page .video-grid-2col{
     grid-template-columns:1fr;
   }
 
-  .research-page .video-left-bottom{
-    grid-column:auto;
-  }
+  .research-page .video-left-bottom{ grid-column:auto; }
+  .research-page .video-grid-2col.video-single .video-card{ grid-column:auto; }
 
-  .research-page .video-grid-2col.video-single .video-card{
-    grid-column:auto;
-  }
-
-  .research-page .video-caption{
+  .research-page .video-caption,
+  .more-page .video-caption{
     font-size:1rem;
   }
 }
 
 /* =========================================================
-   Publications page tweaks (앞에서 작업한 것 포함)
+   Publications page tweaks
    ========================================================= */
 .publications-page .section-title{
   color: var(--unified-blue);
@@ -712,38 +719,3 @@ a:hover{text-decoration:underline;}
     width: 84px;
   }
 }
-
-/* =========================================================
-   Publications page tweaks
-   ========================================================= */
-
-/* About 페이지처럼 섹션 제목 파란색/볼드 */
-.publications-page .section-title{
-  color: var(--unified-blue);
-  font-weight: 650;
-}
-
-/* Year 열 폭 줄이기 */
-.publications-page .cv-period{
-  width: 96px;
-  white-space: nowrap;
-}
-
-/* [pdf] 링크 스타일(가볍게) */
-.publications-page .pdf-link{
-  margin-left: 8px;
-  font-weight: 650;
-  color: var(--unified-blue);
-  text-decoration: none;
-}
-.publications-page .pdf-link:hover{
-  text-decoration: underline;
-}
-
-/* 모바일에서 Year 더 줄이기 */
-@media (max-width: 900px){
-  .publications-page .cv-period{
-    width: 84px;
-  }
-}
-
