@@ -712,3 +712,38 @@ a:hover{text-decoration:underline;}
     width: 84px;
   }
 }
+
+/* =========================================================
+   Publications page tweaks
+   ========================================================= */
+
+/* About 페이지처럼 섹션 제목 파란색/볼드 */
+.publications-page .section-title{
+  color: var(--unified-blue);
+  font-weight: 650;
+}
+
+/* Year 열 폭 줄이기 */
+.publications-page .cv-period{
+  width: 96px;
+  white-space: nowrap;
+}
+
+/* [pdf] 링크 스타일(가볍게) */
+.publications-page .pdf-link{
+  margin-left: 8px;
+  font-weight: 650;
+  color: var(--unified-blue);
+  text-decoration: none;
+}
+.publications-page .pdf-link:hover{
+  text-decoration: underline;
+}
+
+/* 모바일에서 Year 더 줄이기 */
+@media (max-width: 900px){
+  .publications-page .cv-period{
+    width: 84px;
+  }
+}
+
