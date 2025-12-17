@@ -11,7 +11,7 @@
   --unified-blue: #3b6683;
 
   /* ✅ 컨테이너 폭(브라우저/디바이스별로 최대한 화면을 채우되, 너무 넓어지는 것만 제한) */
-  --container-max: 1600px;                 /* 필요하면 1800px까지 올려도 됨 */
+  --container-max: 2000px;                 /* 필요하면 1800px까지 올려도 됨 */
   --container-side-pad: clamp(16px, 2vw, 40px);
   --container-width: min(var(--container-max), 96vw);
 }
