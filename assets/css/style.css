@@ -706,12 +706,18 @@ a:hover{text-decoration:underline;}
   white-space: nowrap;
 }
 
+/* [pdf] 링크 스타일(볼드 제거 + 글씨 2/3) */
 .publications-page .pdf-link{
   margin-left: 8px;
-  font-weight: 650;
+  font-weight: 400;      /* ✅ 볼드 제거 */
+  font-size: 0.67em;     /* ✅ 본문 대비 2/3 */
   color: var(--unified-blue);
   text-decoration: none;
 }
+.publications-page .pdf-link:hover{
+  text-decoration: underline;
+}
+
 .publications-page .pdf-link:hover{ text-decoration: underline; }
 
 @media (max-width: 900px){
